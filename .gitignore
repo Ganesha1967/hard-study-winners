@@ -1,0 +1,78 @@
+# System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Compiled Object files, Static and Dynamic libs
+*.o
+*.a
+*.so
+*.lo
+*.la
+*.obj
+*.lib
+*.dll
+*.dylib
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+*.exe
+*.test
+*.prof
+
+# Go / Cgo specific
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+_testmain.go
+_obj
+_test
+
+# Node / Frontend (React/Vite/Tailwind)
+node_modules/
+dist/
+build/
+.temp/
+.tmp/
+.cache/
+.eslintcache
+.stylelintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment & Secrets 
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# IDEs & Editor
+.idea/
+*.iml
+*.iws
+.idea/workspace.xml
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+install/
+log/
+
+.sass-cache/
