@@ -10,311 +10,6 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body class="min-h-screen bg-[#050505]">
-  <!-- Навигация -->
-  <nav class="sticky top-0 z-50 glass-card mx-2 md:mx-4 mt-4 mb-8 md:mb-12 px-4 md:px-8 py-4 md:py-5" aria-label="Главная навигация">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-      <div class="flex items-center gap-3 text-white">
-        <div class="w-9 h-9 md:w-11 md:h-11 action-btn rounded-xl md:rounded-2xl flex items-center justify-center font-bold text-xl md:text-2xl">
-          <i class="fas fa-meteor"></i>
-        </div>
-        <span class="font-unbounded font-bold text-sm md:text-lg tracking-tight uppercase">HARD STUDY WINNERS</span>
-      </div>
-      <div class="flex gap-4 md:gap-10 text-[9px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em]">
-        <button onclick="showTab('info')" id="btn-info" class="tab-active py-1 text-white cursor-pointer" role="tab" aria-selected="true">Группа</button>
-        <button onclick="showTab('marathon')" id="btn-marathon" class="py-1 text-white/50 hover:text-white transition-all cursor-pointer" role="tab" aria-selected="false">Марафон</button>
-        <button onclick="showTab('results')" id="btn-results" class="py-1 text-white/50 hover:text-white transition-all cursor-pointer" role="tab" aria-selected="false">Зал славы</button>
-      </div>
-    </div>
-  </nav>
-
-  <main class="max-w-6xl mx-auto p-4">
-    <!-- Вкладка: ИНФО -->
-    <section id="tab-info" class="space-y-16 md:space-y-24" role="tabpanel" aria-labelledby="btn-info">
-      <!-- Hero-section -->
-      <div class="relative py-16 md:py-28 px-4 text-center space-y-8 md:space-y-12 overflow-hidden rounded-[30px] md:rounded-[40px]">
-        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-blue-900/20"></div>
-        <div class="relative z-10">
-          <h1 class="text-4xl sm:text-6xl md:text-[9rem] font-bold text-white mb-6 md:mb-8 tracking-tighter float-anim leading-tight">STUDY HARD</h1>
-          <p class="text-glow-lavender/60 max-w-2xl mx-auto text-lg md:text-2xl leading-relaxed font-light px-2">
-            Это пространство для гипер-продуктивности и твоего системного роста
-          </p>
-          <div class="flex justify-center mt-10 md:mt-16">
-            <a href="https://t.me/hardstudywinners" class="action-btn px-8 md:px-14 py-4 md:py-5 rounded-[20px] md:rounded-[24px] font-bold flex items-center gap-3 md:gap-4 text-lg md:text-xl no-underline">
-              <i class="fab fa-telegram-plane"></i> Вступить в ТГ
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Правила -->
-      <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 md:gap-10 items-start">
-        <!-- Правила группы -->
-        <div class="glass-card p-6 md:p-10 h-full flex flex-col">
-          <h3 class="text-2xl md:text-3xl font-bold mb-6 md:mb-10 text-white flex items-center gap-4">
-            <i class="fas fa-fingerprint text-glow-lavender"></i>
-            <span>Правила группы</span>
-          </h3>
-          <div class="space-y-4 flex-grow">
-            <div class="p-4 md:p-5 bg-white/5 rounded-2xl md:rounded-3xl border border-white/5 hover:border-glow-lavender/30 transition-all">
-              <span class="text-glow-lavender font-unbounded text-[9px] mb-1 block">RULE 01</span>
-              <p class="text-sm md:text-base text-white/80">Оскорбления, нападки, троллинг, агрессивное поведение</p>
-            </div>
-            <div class="p-4 md:p-5 bg-white/5 rounded-2xl md:rounded-3xl border border-white/5 hover:border-glow-lavender/30 transition-all">
-              <span class="text-glow-lavender font-unbounded text-[9px] mb-1 block">RULE 02</span>
-              <p class="text-sm md:text-base text-white/80">Холивары</p>
-            </div>
-            <div class="p-4 md:p-5 bg-white/5 rounded-2xl md:rounded-3xl border border-white/5 hover:border-glow-lavender/30 transition-all">
-              <span class="text-glow-lavender font-unbounded text-[9px] mb-1 block">RULE 03</span>
-              <p class="text-sm md:text-base text-white/80">Спам</p>
-            </div>
-            <div class="p-4 md:p-5 bg-purple-500/10 rounded-2xl md:rounded-3xl border border-purple-500/20 hover:border-red-400/40 transition-all">
-              <span class="text-red-400 font-unbounded text-[9px] mb-1 block">CRITICAL ERROR: BAN</span>
-              <p class="text-sm md:text-base text-white/90 italic">НАРУШЕНИЕ ПРАВИЛ КАРАЕТСЯ БАНОМ</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- праивла YPT группы -->
-        <div class="glass-card p-6 md:p-10 h-full flex flex-col">
-          <div class="flex items-center gap-4 md:gap-5 mb-8 md:mb-10">
-            <div class="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-glow-lavender/10 flex items-center justify-center border border-glow-lavender/20">
-              <i class="fas fa-infinity text-xl md:text-3xl text-glow-lavender animate-pulse"></i>
-            </div>
-            <h3 class="text-2xl md:text-4xl font-bold text-white">YPT Вселенная</h3>
-          </div>
-
-          <div class="space-y-6 md:space-y-10 flex-grow">
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
-              <a href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NTc1MDE2Nw==" target="_blank" class="action-btn text-center py-3 md:py-4 rounded-xl text-[10px] md:text-sm font-bold uppercase tracking-wider no-underline">Группа 0</a>
-              <a href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9Mzg5NTkwNA==" target="_blank" class="action-btn text-center py-3 md:py-4 rounded-xl text-[10px] md:text-sm font-bold uppercase tracking-wider no-underline">Группа 1</a>
-              <a href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NDQ3MTA5NA==" target="_blank" class="action-btn text-center py-3 md:py-4 rounded-xl text-[10px] md:text-sm font-bold uppercase tracking-wider no-underline">Группа 2</a>
-              <a href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9MzkyNjMzNQ==" target="_blank" class="action-btn text-center py-3 md:py-4 rounded-xl text-[10px] md:text-sm font-bold uppercase tracking-wider no-underline">Группа 3</a>
-              <a href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NDA3MjQ1MQ==" target="_blank" class="action-btn text-center py-3 md:py-4 rounded-xl text-[10px] md:text-sm font-bold uppercase tracking-wider no-underline">Группа 4</a>
-            </div>
-
-            <div class="space-y-6 bg-black/30 p-5 md:p-8 rounded-[24px] md:rounded-[32px] border border-white/5 text-sm md:text-base leading-relaxed relative overflow-hidden">
-              <div class="relative space-y-4 md:space-y-6">
-                <p class="text-white/80 italic border-l-4 border-glow-lavender/40 pl-4 md:pl-5">
-                  Все условия пребывания указаны на доске объявлений в YPT. Нарушение влечёт за собой исключение из группы
-                </p>
-                <div class="pt-2 space-y-4">
-                  <h4 class="text-glow-lavender font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs flex items-center gap-2">
-                    <i class="fas fa-triangle-exclamation"></i> Система предупреждений
-                  </h4>
-                  <div class="grid gap-4">
-                    <div class="bg-white/5 p-4 md:p-6 rounded-xl border border-white/5">
-                      <span class="text-white text-base md:text-lg font-bold block mb-2">Группы 1 и 2</span>
-                      <ul class="space-y-2 text-white/70 text-xs md:text-sm">
-                        <li>• предупреждение ставится, если вы вступили в группу до 14-го числа (не включительно), но не успели выполнить норму до конца этого месяца</li>
-                        <li>• если вы так и не смогли добить норму, вы будете исключены из группы при след. чистку группы</li>
-                      </ul>
-                    </div>
-                    <div class="bg-white/5 p-4 md:p-6 rounded-xl border border-white/5">
-                      <span class="text-white text-base md:text-lg font-bold block mb-2">Группы 1 и 2</span>
-                      <ul class="space-y-2 text-white/70 text-xs md:text-sm">
-                        <li>• правила такие же, что и для 1 и 2 группы, но только для тех, кто вступил до 9-го числа (не включительно)</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Навигация по группе -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        <!-- Новости -->
-        <a href="https://t.me/hardstudywinners/3" target="_blank" class="topic-card glass-card p-8 md:p-12">
-          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-purple-500/10 flex items-center justify-center text-4xl md:text-5xl mb-6 md:mb-10 border border-purple-500/20">📡</div>
-          <h3 class="font-bold text-2xl md:text-3xl text-white mb-2 md:mb-4">Новости</h3>
-          <p class="text-xs md:text-sm text-glow-lavender/40 leading-relaxed italic">Главные события и обновления нашей группы</p>
-        </a>
-
-        <!-- Отчеты -->
-        <a href="https://t.me/hardstudywinners/5" target="_blank" class="topic-card glass-card p-8 md:p-12">
-          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-purple-500/10 flex items-center justify-center text-4xl md:text-5xl mb-6 md:mb-10 border border-purple-500/20">🛸</div>
-          <h3 class="font-bold text-2xl md:text-3xl text-white mb-2 md:mb-4">Отчеты</h3>
-          <p class="text-xs md:text-sm text-glow-lavender/40 leading-relaxed italic">Твои ежедневные отчеты о прогрессе в учебе</p>
-        </a>
-
-        <!-- Знакомства -->
-        <a href="https://t.me/hardstudywinners/770" target="_blank" class="topic-card glass-card p-8 md:p-12">
-          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-glow-lavender/10 flex items-center justify-center text-4xl md:text-5xl mb-6 md:mb-10 border border-glow-lavender/20">👾</div>
-          <h3 class="font-bold text-2xl md:text-3xl text-white mb-2 md:mb-4">Знакомства</h3>
-          <p class="text-xs md:text-sm text-glow-lavender/40 leading-relaxed italic">Расскажи о себе и найди единомышленников</p>
-        </a>
-
-        <!-- Общение -->
-        <a href="https://t.me/hardstudywinners/2" target="_blank" class="topic-card glass-card p-8 md:p-12">
-          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-glow-lavender/10 flex items-center justify-center text-4xl md:text-5xl mb-6 md:mb-10 border border-glow-lavender/20">💬</div>
-          <h3 class="font-bold text-2xl md:text-3xl text-white mb-2 md:mb-4">Общение</h3>
-          <p class="text-xs md:text-sm text-glow-lavender/40 leading-relaxed italic">Пространство для свободного общения</p>
-        </a>
-
-        <!-- Полезное -->
-        <a href="https://t.me/hardstudywinners/785" target="_blank" class="topic-card glass-card p-8 md:p-12">
-          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-glow-lavender/10 flex items-center justify-center text-4xl md:text-5xl mb-6 md:mb-10 border border-glow-lavender/20">📚</div>
-          <h3 class="font-bold text-2xl md:text-3xl text-white mb-2 md:mb-4">Полезное</h3>
-          <p class="text-xs md:text-sm text-glow-lavender/40 leading-relaxed italic">База знаний и полезных материалов</p>
-        </a>
-
-        <!-- Опросики -->
-        <a href="https://t.me/hardstudywinners/9539" target="_blank" class="topic-card glass-card p-8 md:p-12">
-          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-glow-lavender/10 flex items-center justify-center text-4xl md:text-5xl mb-6 md:mb-10 border border-glow-lavender/20">📊</div>
-          <h3 class="font-bold text-2xl md:text-3xl text-white mb-2 md:mb-4">Опросики</h3>
-          <p class="text-xs md:text-sm text-glow-lavender/40 leading-relaxed italic">Нам важен твой голос</p>
-        </a>
-
-        <!-- Мемная -->
-        <a href="https://t.me/hardstudywinners/9545" target="_blank" class="topic-card glass-card p-8 md:p-12">
-          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-glow-lavender/10 flex items-center justify-center text-4xl md:text-5xl mb-6 md:mb-10 border border-glow-lavender/20">🎭</div>
-          <h3 class="font-bold text-2xl md:text-3xl text-white mb-2 md:mb-4">Мемная</h3>
-          <p class="text-xs md:text-sm text-glow-lavender/40 leading-relaxed italic">Место похихикать и отвлечься</p>
-        </a>
-
-        <!-- Планы -->
-        <a href="https://t.me/hardstudywinners/12738" target="_blank" class="topic-card glass-card p-8 md:p-12">
-          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-glow-lavender/10 flex items-center justify-center text-4xl md:text-5xl mb-6 md:mb-10 border border-glow-lavender/20">🗺️</div>
-          <h3 class="font-bold text-2xl md:text-3xl text-white mb-2 md:mb-4">Планы</h3>
-          <p class="text-xs md:text-sm text-glow-lavender/40 leading-relaxed italic">Распиши свой идеальный день</p>
-        </a>
-
-        <!-- Ваши каналы -->
-        <a href="https://t.me/hardstudywinners/4606" target="_blank" class="topic-card glass-card p-8 md:p-12">
-          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-glow-lavender/10 flex items-center justify-center text-4xl md:text-5xl mb-6 md:mb-10 border border-glow-lavender/20">📺</div>
-          <h3 class="font-bold text-2xl md:text-3xl text-white mb-2 md:mb-4">Ваши каналы</h3>
-          <p class="text-xs md:text-sm text-glow-lavender/40 leading-relaxed italic">Библиотека тгк участников</p>
-        </a>
-      </div>
-    </section>
-
-    <!-- Вкладка: МАРАФОН -->
-    <section id="tab-marathon" class="hidden space-y-8 md:space-y-12" role="tabpanel" aria-labelledby="btn-marathon">
-      <div class="glass-card p-8 md:p-12 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-glow-lavender/5 blur-[100px] rounded-full -mr-32 -mt-32"></div>
-        <div class="relative z-10 flex flex-col lg:flex-row justify-between items-center lg:items-end gap-6 md:gap-10 text-center lg:text-left">
-          <div class="space-y-4">
-            <div class="inline-block px-4 py-1 bg-glow-lavender/20 rounded-full text-glow-lavender text-[9px] md:text-[10px] font-bold tracking-widest border border-glow-lavender/30 uppercase">
-              Mission Active
-            </div>
-            <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter uppercase leading-none">
-              Пятилетка 5.0
-            </h2>
-          </div>
-          <div class="min-w-fit">
-            <p class="text-[9px] md:text-[10px] text-glow-lavender/40 uppercase tracking-[0.3em] md:tracking-[0.4em] mb-2 font-bold">
-              До дедлайна (по МСК)
-            </p>
-            <p id="countdown-timer" class="text-5xl md:text-7xl font-unbounded text-glow-lavender italic tracking-tighter leading-none">
-              00:00:00
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Вкладка: ЗАЛ СЛАВЫ -->
-    <section id="tab-results" class="hidden space-y-12 py-12" role="tabpanel" aria-labelledby="btn-results">
-      <div class="text-center px-4">
-        <h2 class="text-4xl md:text-8xl font-bold text-white italic tracking-tighter mb-4">GALAXY HALL</h2>
-        <p class="text-glow-lavender/50 uppercase tracking-[0.4em] md:tracking-[0.8em] text-[9px] md:text-[10px]">Скоро здесь появятся легенды</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="mt-24 md:mt-40 py-16 md:py-24 px-6 glass-card rounded-none border-none text-center">
-    <div class="max-w-4xl mx-auto space-y-8 md:space-y-12">
-      <div class="inline-block bg-white/5 border border-white/10 rounded-[24px] md:rounded-[32px] p-6 md:p-8 max-w-2xl transition-all hover:border-glow-lavender/30 group">
-        <div class="flex flex-col items-center gap-4">
-          <i class="fab fa-github text-2xl md:text-3xl text-white/50 group-hover:text-white"></i>
-          <p class="text-white/60 text-xs md:text-sm leading-relaxed">
-            Хотите помочь? Делайте <b>PR</b> в наш репозиторий. Пожалуйста, пишите <span class="text-glow-lavender">подробно</span> об изменениях!
-          </p>
-          <a href="https://github.com/Ganesha1967/hard-study-winners" target="_blank" class="text-[10px] font-bold uppercase tracking-widest text-glow-lavender border-b border-glow-lavender/20 pb-1 hover:border-glow-lavender transition-all">
-            github.com/Ganesha1967/hard-study-winners
-          </a>
-        </div>
-      </div>
-      <p class="font-unbounded text-[8px] md:text-[10px] tracking-[0.6em] md:tracking-[1em] text-white/20 uppercase">Hard Study Winners</p>
-    </div>
-  </footer>
-
-  <script>
-    function showTab(tabId) {
-      const tabs = ['info', 'marathon', 'results'];
-
-      tabs.forEach(t => {
-        const section = document.getElementById('tab-' + t);
-        const btn = document.getElementById('btn-' + t);
-        if (section) section.classList.add('hidden');
-        if (btn) {
-          btn.classList.remove('tab-active');
-          btn.classList.add('text-white/50');
-          btn.setAttribute('aria-selected', 'false');
-        }
-      });
-
-      const activeSection = document.getElementById('tab-' + tabId);
-      const activeBtn = document.getElementById('btn-' + tabId);
-      if (activeSection) activeSection.classList.remove('hidden');
-      if (activeBtn) {
-        activeBtn.classList.add('tab-active');
-        activeBtn.classList.remove('text-white/50');
-        activeBtn.setAttribute('aria-selected', 'true');
-      }
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function updateMoscowCountdown() {
-      const timerElement = document.getElementById('countdown-timer');
-      if (!timerElement) return;
-
-      try {
-        const now = new Date();
-        const moscowTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Moscow' }));
-        const endOfDay = new Date(moscowTime);
-        endOfDay.setHours(23, 59, 59, 999);
-
-        let diff = endOfDay - moscowTime;
-        if (diff < 0) diff = 0;
-
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        timerElement.textContent = [
-          hours.toString().padStart(2, '0'),
-          minutes.toString().padStart(2, '0'),
-          seconds.toString().padStart(2, '0')
-        ].join(':');
-      } catch (error) {
-        console.error('Таймер не обновлён:', error);
-        timerElement.textContent = '--:--:--';
-      }
-    }
-
-    setInterval(updateMoscowCountdown, 1000);
-    updateMoscowCountdown();
-  </script>
-</body>
-
-</html>
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hard Study Winners | Пятилетка за 30 дней</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-
 <body class="min-h-screen">
   <!-- Навигация -->
   <nav class="sticky top-0 z-50 glass-card mx-2 md:mx-4 mt-4 mb-8 md:mb-12 px-4 md:px-8 py-4 md:py-5" aria-label="Главная навигация">
@@ -501,14 +196,15 @@
       </div>
 
       <!-- Статистика марафона -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
         <!-- Левая колонка: Общая сводка -->
-        <div class="lg:col-span-1 space-y-8">
-          <div class="glass-card p-8 border-l-4 border-[#D8B2FE]">
-            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3 uppercase">
-              <i class="fas fa-chart-pie"></i> Сводка дня 1
+        <div class="lg:col-span-1 space-y-6 md:space-y-8">
+          <!-- Сводка дня -->
+          <div class="glass-card p-5 md:p-8 border-l-4 border-[#D8B2FE]">
+            <h3 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 flex items-center gap-3 uppercase">
+              <i class="fas fa-chart-pie text-[#D8B2FE]"></i> Сводка дня 1
             </h3>
-            <div class="space-y-4 text-sm">
+            <div class="space-y-3 md:space-y-4 text-xs md:text-sm">
               <p class="text-white/80">├ Участников: <span class="text-white font-bold">17</span></p>
               <p class="text-white/80">├ Активных: <span class="text-green-400 font-bold">17 (100%)</span></p>
               <p class="text-white/80">├ Выбывших: <span class="text-red-400 font-bold">0</span></p>
@@ -516,53 +212,54 @@
             </div>
           </div>
 
-          <div class="glass-card p-8">
-            <h3 class="text-xl font-bold text-white mb-6 uppercase flex items-center gap-3">
-              <i class="fas fa-calendar-week"></i> Прогресс недели
+          <!-- Прогресс недели -->
+          <div class="glass-card p-5 md:p-8">
+            <h3 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 uppercase flex items-center gap-3">
+              <i class="fas fa-calendar-week text-[#D8B2FE]"></i> Прогресс недели
             </h3>
-            <div class="space-y-3 font-mono text-xs">
+            <div class="space-y-2 md:space-y-3 font-mono text-[10px] md:text-xs">
               <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
                 <span>ПН: 17 отчётов</span> <span class="text-green-400">✅</span>
               </div>
-              <div class="flex justify-between items-center p-3 opacity-30">
-                <span>ВТ: 0 отчётов</span> <span>--</span>
-              </div>
-              <div class="flex justify-between items-center p-3 opacity-30">
-                <span>СР: 0 отчётов</span> <span>--</span>
-              </div>
-              <div class="flex justify-between items-center p-3 opacity-30">
-                <span>ЧТ: 0 отчётов</span> <span>--</span>
-              </div>
-              <div class="flex justify-between items-center p-3 opacity-30">
-                <span>ПТ: 0 отчётов</span> <span>--</span>
-              </div>
-              <div class="flex justify-between items-center p-3 opacity-30">
-                <span>СБ: 0 отчётов</span> <span>--</span>
-              </div>
-              <div class="flex justify-between items-center p-3 opacity-30">
-                <span>ВС: 0 отчётов</span> <span>--</span>
+              <!-- Список дней (оптимизировано) -->
+              <div class="grid grid-cols-1 gap-1">
+                  <div class="flex justify-between items-center px-3 py-2 opacity-30"><span>ВТ: 0 отчётов</span> <span>--</span></div>
+                  <div class="flex justify-between items-center px-3 py-2 opacity-30"><span>СР: 0 отчётов</span> <span>--</span></div>
+                  <div class="flex justify-between items-center px-3 py-2 opacity-30"><span>ЧТ: 0 отчётов</span> <span>--</span></div>
+                  <div class="flex justify-between items-center px-3 py-2 opacity-30"><span>ПТ: 0 отчётов</span> <span>--</span></div>
+                  <div class="flex justify-between items-center px-3 py-2 opacity-30"><span>СБ: 0 отчётов</span> <span>--</span></div>
+                  <div class="flex justify-between items-center px-3 py-2 opacity-30"><span>ВС: 0 отчётов</span> <span>--</span></div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Правая колонка: Список участников -->
-        <div class="lg:col-span-2 glass-card p-8 overflow-hidden">
-          <h3 class="text-xl font-bold text-white mb-8 flex items-center gap-3 uppercase">
-            <i class="fas fa-users"></i> Все участники
+        <div class="lg:col-span-2 glass-card p-5 md:p-8 overflow-hidden flex flex-col">
+          <h3 class="text-lg md:text-xl font-bold text-white mb-6 md:mb-8 flex items-center gap-3 uppercase">
+            <i class="fas fa-users text-[#D8B2FE]"></i> Все участники
           </h3>
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-sm">
-              <thead class="text-[#D8B2FE]/40 text-[10px] uppercase font-bold tracking-widest border-b border-white/5">
+          
+          <!-- Контейнер со скроллом для таблицы на мобилках -->
+          <div class="overflow-x-auto -mx-2 px-2 scrollbar-thin scrollbar-thumb-white/10">
+            <table class="w-full text-left text-xs md:text-sm min-w-[500px] md:min-w-full">
+              <thead class="text-[#D8B2FE]/40 text-[9px] md:text-[10px] uppercase font-bold tracking-widest border-b border-white/5">
                 <tr>
-                  <th class="pb-4 pr-4">#</th>
-                  <th class="pb-4">Хэштег участника</th>
-                  <th class="pb-4">Жизни</th>
-                  <th class="pb-4 text-center">Серия</th>
-                  <th class="pb-4 text-right">Отчёты</th>
+                  <th class="pb-4 pr-2 w-8">#</th>
+                  <th class="pb-4 pr-4">Участник</th>
+                  <th class="pb-4 pr-4">Жизни</th>
+                  <th class="pb-4 text-center w-16">Серия</th>
+                  <th class="pb-4 text-right w-16">Отчёты</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-white/5">
+                <tr class="hover:bg-white/5 transition-colors">
+                  <td class="py-3 md:py-4 opacity-40">1</td>
+                  <td class="py-3 md:py-4 font-bold text-white tracking-tight">#amdrdzj</td>
+                  <td class="py-3 md:py-4"><span class="text-[#D8B2FE] text-[10px] md:text-xs">❤️❤️❤️❤️❤️</span></td>
+                  <td class="py-3 md:py-4 text-center">1</td>
+                  <td class="py-3 md:py-4 text-right">1</td>
+                </tr>
                 <tr class="hover:bg-white/5 transition-colors"><td class="py-4 opacity-40">1</td><td class="py-4 font-bold text-white">#amdrdzj</td><td class="py-4"><span class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</span></td><td class="py-4 text-center">1</td><td class="py-4 text-right">1</td></tr>
                 <tr class="hover:bg-white/5 transition-colors"><td class="py-4 opacity-40">2</td><td class="py-4 font-bold text-white">#amphibian</td><td class="py-4"><span class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</span></td><td class="py-4 text-center">1</td><td class="py-4 text-right">1</td></tr>
                 <tr class="hover:bg-white/5 transition-colors"><td class="py-4 opacity-40">3</td><td class="py-4 font-bold text-white">#cppshnik</td><td class="py-4"><span class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</span></td><td class="py-4 text-center">1</td><td class="py-4 text-right">1</td></tr>
@@ -583,13 +280,14 @@
               </tbody>
             </table>
           </div>
-          <div class="mt-8 pt-6 border-t border-white/5 flex gap-6 text-[10px] text-[#D8B2FE]/50 uppercase font-bold tracking-widest">
-            <span>🏝 - day-off</span>
+
+          <!-- Футер таблицы -->
+          <div class="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/5 flex flex-wrap gap-4 md:gap-6 text-[9px] md:text-[10px] text-[#D8B2FE]/50 uppercase font-bold tracking-widest">
+            <span class="flex items-center gap-1"><i class="fas fa-umbrella-beach"></i> day-off</span>
             <span>#пятилетка</span>
           </div>
         </div>
       </div>
-    </section>
 
     <!-- Вкладка: ЗАЛ СЛАВЫ -->
     <section id="tab-results" class="hidden space-y-12 py-12" role="tabpanel" aria-labelledby="btn-results">
