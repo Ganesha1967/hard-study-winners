@@ -111,3 +111,18 @@ h1, h2, h3, .font-unbounded {
 .border-glow-lavender\/20 {
     border-color: rgba(216, 178, 254, 0.2);
 }
+
+.sub-tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #7c3aed;
+  box-shadow: 0 0 8px #7c3aed;
+}
+.archive-inner-active {
+  background-color: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+}
