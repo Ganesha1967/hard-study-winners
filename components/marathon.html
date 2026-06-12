@@ -1,0 +1,96 @@
+<div class="flex border-b border-white/10 gap-6 text-xs md:text-sm font-bold uppercase tracking-wider pb-3">
+  <button onclick="showMarathonSubTab('active')" id="sub-btn-active" class="sub-tab-active text-white cursor-pointer relative" aria-selected="true">
+    Активные марафоны
+  </button>
+  <button onclick="showMarathonSubTab('archive')" id="sub-btn-archive" class="text-white/50 hover:text-white transition-all cursor-pointer relative" aria-selected="false">
+    Архив
+  </button>
+</div>
+
+<div id="marathon-active" class="space-y-8 md:space-y-12 mt-8 md:mt-12">
+  <div class="glass-card p-8 md:p-12 relative overflow-hidden border border-glow-lavender/20">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 blur-[100px] rounded-full -mr-32 -mt-32"></div>
+    <div class="relative z-10 flex flex-col lg:flex-row justify-between items-center lg:items-end gap-6 md:gap-10 text-center lg:text-left">
+      <div class="space-y-4">
+        <div class="inline-block px-4 py-1 bg-purple-500/20 rounded-full text-purple-300 text-[9px] md:text-[10px] font-bold tracking-widest border border-purple-500/30 uppercase animate-pulse">
+          Скоро старт
+        </div>
+        <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter uppercase leading-none">
+          Пятилетка 6.0
+        </h2>
+        <p class="text-xs md:text-sm text-white/60 font-mono">Период проведения: 15.06.2026 - 30.06.2026</p>
+      </div>
+      <div class="min-w-fit">
+        <p class="text-[9px] md:text-[10px] text-purple-300/60 uppercase tracking-[0.3em] md:tracking-[0.4em] mb-2 font-bold">
+          До старта (по МСК)
+        </p>
+        <p id="countdown-timer-6" class="text-5xl md:text-7xl font-unbounded text-purple-400 italic tracking-tighter leading-none">
+          00:00:00
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-card p-6 md:p-10 border border-white/10 rounded-2xl bg-gradient-to-br from-white/[0.05] to-transparent shadow-2xl relative overflow-hidden">
+    
+    <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="border-b border-white/5 pb-5 mb-6">
+      <h3 class="font-extrabold text-xl md:text-2xl text-white uppercase tracking-tight flex items-center gap-3.5">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+        </span>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-purple-200">
+          Последний забег учебного года!
+        </span>
+      </h3>
+    </div>
+
+    <p class="text-white/80 text-sm md:text-base leading-relaxed mb-8 max-w-3xl">
+      Вас ждут две недели жесткой концентрации, ежедневных отчетов и максимальной продуктивности. Не упустите шанс закончить этот год красиво!
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 font-mono text-xs md:text-sm">
+      <div class="bg-white/5 p-4 rounded-xl border border-white/5 flex items-center gap-3">
+        <i class="fas fa-calendar-alt text-purple-400 text-lg"></i>
+        <div>
+          <span class="text-white/50 block text-[10px] uppercase tracking-wider">Старт</span>
+          <span class="text-white font-bold">15.06.26</span>
+        </div>
+      </div>
+      <div class="bg-white/5 p-4 rounded-xl border border-white/5 flex items-center gap-3">
+        <i class="fas fa-stopwatch text-purple-400 text-lg"></i>
+        <div>
+          <span class="text-white/50 block text-[10px] uppercase tracking-wider">Формат</span>
+          <span class="text-white font-bold">16 дней спринта</span>
+        </div>
+      </div>
+      <div class="bg-white/5 p-4 rounded-xl border border-white/5 flex items-center gap-3">
+        <i class="fas fa-file-signature text-purple-400 text-lg"></i>
+        <div>
+          <span class="text-white/50 block text-[10px] uppercase tracking-wider">Правила</span>
+          <span class="text-white font-bold">Скоро появятся тут</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-5 items-center justify-between border-t border-white/5 pt-8">
+      <a href="https://t.me/hardstudywinners" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-purple-600 text-white font-bold uppercase tracking-wider text-xs no-underline transition-all hover:bg-purple-500 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] active:scale-95">
+        <i class="fab fa-telegram-plane text-base"></i> Следить за анонсом в Telegram
+      </a>
+      
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSddq4ATIUToMYS60pxkUHBDzSs5fWTxKhEMN5udhVnXlx69LA/viewform?usp=dialog" target="_blank" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 text-xs text-[#D8B2FE]/80 hover:text-white transition-colors bg-white/5 px-5 py-3 rounded-lg border border-white/5 hover:border-[#D8B2FE]/30 font-medium">
+        <i class="fas fa-lightbulb"></i> Оставить мысли по поводу будущих марафонов можно тут
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="marathon-archive" class="hidden space-y-6 mt-8 md:mt-12">
+  <div id="archive-placeholder" class="text-white/60 text-sm font-mono animate-pulse text-center py-8">
+    <i class="fas fa-spinner fa-spin mr-2"></i> Загрузка архива марафонов...
+  </div>
+</div>

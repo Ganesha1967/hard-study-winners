@@ -1,0 +1,64 @@
+
+  
+<div id="archive-list-view" class="space-y-4">
+  <p class="text-white/50 text-xs md:text-sm uppercase tracking-wider font-bold mb-2">Список прошедших марафонов:</p>
+  <div class="grid grid-cols-1 gap-3">
+    <button onclick="openArchiveMarathon('p5')" class="w-full text-left glass-card p-5 hover:border-glow-lavender/40 transition-all flex justify-between items-center group cursor-pointer bg-white/[0.02]">
+      <div class="space-y-1">
+        <h4 class="font-bold text-white text-lg group-hover:text-glow-lavender transition-colors">Пятилетка 5.0</h4>
+        <p class="text-xs text-white/40 font-mono">Период проведения марафона: 32 дня (11.05.2026 - 11.06.2026)</p>
+      </div>
+      <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-glow-lavender/30 group-hover:bg-glow-lavender/10 transition-all">
+        <i class="fas fa-chevron-right text-white/40 group-hover:text-glow-lavender transition-colors text-xs"></i>
+      </div>
+    </button>
+
+    <button onclick="openArchiveMarathon('p4')" class="w-full text-left glass-card p-5 hover:border-glow-lavender/40 transition-all flex justify-between items-center group cursor-pointer bg-white/[0.02]">
+      <div class="space-y-1">
+        <h4 class="font-bold text-white text-lg group-hover:text-glow-lavender transition-colors">Пятилетка 4.0</h4>
+        <p class="text-xs text-white/40 font-mono">Период проведения марафона: 31 день (06.04.2026 - 06.05.2026)</p>
+      </div>
+      <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-glow-lavender/30 group-hover:bg-glow-lavender/10 transition-all">
+        <i class="fas fa-chevron-right text-white/40 group-hover:text-glow-lavender transition-colors text-xs"></i>
+      </div>
+    </button>
+
+    <button onclick="openArchiveMarathon('p3')" class="w-full text-left glass-card p-5 hover:border-glow-lavender/40 transition-all flex justify-between items-center group cursor-pointer bg-white/[0.02]">
+      <div class="space-y-1">
+        <h4 class="font-bold text-white text-lg group-hover:text-glow-lavender transition-colors">Пятилетка 3.0</h4>
+        <p class="text-xs text-white/40 font-mono">Период проведения марафона: 29 дней (16.02.2026 - 16.03.2026)</p>
+      </div>
+      <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-glow-lavender/30 group-hover:bg-glow-lavender/10 transition-all">
+        <i class="fas fa-chevron-right text-white/40 group-hover:text-glow-lavender transition-colors text-xs"></i>
+      </div>
+    </button>
+
+    <button onclick="openArchiveMarathon('p2')" class="w-full text-left glass-card p-5 hover:border-glow-lavender/40 transition-all flex justify-between items-center group cursor-pointer bg-white/[0.02]">
+      <div class="space-y-1">
+        <h4 class="font-bold text-white text-lg group-hover:text-glow-lavender transition-colors">Пятилетка 2.0</h4>
+        <p class="text-xs text-white/40 font-mono">Период проведения марафона: 32 дня (08.01.2026 - 08.02.2026)</p>
+      </div>
+      <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-glow-lavender/30 group-hover:bg-glow-lavender/10 transition-all">
+        <i class="fas fa-chevron-right text-white/40 group-hover:text-glow-lavender transition-colors text-xs"></i>
+      </div>
+    </button>
+
+    <button onclick="openArchiveMarathon('p1')" class="w-full text-left glass-card p-5 hover:border-glow-lavender/40 transition-all flex justify-between items-center group cursor-pointer bg-white/[0.02]">
+      <div class="space-y-1">
+        <h4 class="font-bold text-white text-lg group-hover:text-glow-lavender transition-colors">Пятилетка 1.0</h4>
+        <p class="text-xs text-white/40 font-mono">Период проведения марафона: 30 дней (01.12.2025 - 30.12.2025)</p>
+      </div>
+      <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-glow-lavender/30 group-hover:bg-glow-lavender/10 transition-all">
+        <i class="fas fa-chevron-right text-white/40 group-hover:text-glow-lavender transition-colors text-xs"></i>
+      </div>
+    </button>
+  </div>
+</div>
+
+<div id="archive-detail-view" class="hidden space-y-8">
+  <button onclick="closeArchiveMarathon()" class="text-glow-lavender hover:text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-colors cursor-pointer bg-white/5 px-4 py-2 rounded-xl border border-white/5 hover:border-glow-lavender/20 w-fit">
+    <i class="fas fa-arrow-left"></i> Вернуться к списку архива
+  </button>
+
+  <div id="marathon-data-container"></div>
+</div>
