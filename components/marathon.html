@@ -12,19 +12,19 @@
     <div class="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 blur-[100px] rounded-full -mr-32 -mt-32"></div>
     <div class="relative z-10 flex flex-col lg:flex-row justify-between items-center lg:items-end gap-6 md:gap-10 text-center lg:text-left">
       <div class="space-y-4">
-        <div class="inline-block px-4 py-1 bg-purple-500/20 rounded-full text-purple-300 text-[9px] md:text-[10px] font-bold tracking-widest border border-purple-500/30 uppercase animate-pulse">
-          Скоро старт
+        <div class="inline-block px-4 py-1 bg-emerald-500/20 rounded-full text-emerald-300 text-[9px] md:text-[10px] font-bold tracking-widest border border-emerald-500/30 uppercase animate-pulse">
+          Марафон идет
         </div>
         <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter uppercase leading-none">
           Пятилетка 6.0
         </h2>
         <p class="text-xs md:text-sm text-white/60 font-mono">Период проведения: 15.06.2026 - 30.06.2026</p>
       </div>
-      <div class="min-w-fit">
+      <div class="min-w-[200px] lg:text-right">
         <p class="text-[9px] md:text-[10px] text-purple-300/60 uppercase tracking-[0.3em] md:tracking-[0.4em] mb-2 font-bold">
-          До старта (по МСК)
+          До дедлайна отчетов (23:59 МСК):
         </p>
-        <p id="countdown-timer-6" class="text-5xl md:text-7xl font-unbounded text-purple-400 italic tracking-tighter leading-none">
+        <p id="marathon-timer" class="text-3xl md:text-5xl font-unbounded text-purple-400 italic tracking-tighter leading-none font-bold">
           00:00:00
         </p>
       </div>
@@ -32,7 +32,6 @@
   </div>
 
   <div class="glass-card p-6 md:p-10 border border-white/10 rounded-2xl bg-gradient-to-br from-white/[0.05] to-transparent shadow-2xl relative overflow-hidden">
-    
     <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="border-b border-white/5 pb-5 mb-6">
@@ -56,7 +55,7 @@
         <i class="fas fa-calendar-alt text-purple-400 text-lg"></i>
         <div>
           <span class="text-white/50 block text-[10px] uppercase tracking-wider">Старт</span>
-          <span class="text-white font-bold">15.06.26</span>
+          <span class="text-white font-bold">15.06.2026</span>
         </div>
       </div>
       <div class="bg-white/5 p-4 rounded-xl border border-white/5 flex items-center gap-3">
@@ -70,14 +69,130 @@
         <i class="fas fa-file-signature text-purple-400 text-lg"></i>
         <div>
           <span class="text-white/50 block text-[10px] uppercase tracking-wider">Правила</span>
-          <span class="text-white font-bold">Скоро появятся тут</span>
+          <span class="text-white font-bold">Ниже</span>
         </div>
       </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row gap-5 items-center justify-between border-t border-white/5 pt-8">
-      <a href="https://t.me/hardstudywinners" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-purple-600 text-white font-bold uppercase tracking-wider text-xs no-underline transition-all hover:bg-purple-500 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] active:scale-95">
-        <i class="fab fa-telegram-plane text-base"></i> Следить за анонсом в тг
+    <div class="glass-card p-6 md:p-8 border border-white/10 rounded-2xl mb-10 bg-black/10 transition-all duration-300 hover:border-white/20">
+      <details class="group">
+        <summary class="flex justify-between items-center font-bold text-lg md:text-xl text-white cursor-pointer list-none uppercase tracking-wide select-none">
+          <span class="flex items-center gap-3">
+            <i class="fas fa-scroll text-[#D8B2FE]"></i> Условия участия и правила марафона 6.0
+          </span>
+          <span class="transition group-open:rotate-180 text-white/50 group-hover:text-white">
+            <i class="fas fa-chevron-down"></i>
+          </span>
+        </summary>
+        
+        <div class="mt-6 md:mt-8 space-y-8 text-white/95 border-t border-white/5 pt-6 text-sm md:text-base leading-relaxed">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white/5 p-5 rounded-xl border border-white/5">
+              <h4 class="font-bold text-[#D8B2FE] uppercase text-xs tracking-wider mb-3">📅 Сроки проведения</h4>
+              <p><b>Старт:</b> 15 июня</p>
+              <p><b>Финиш:</b> 30 июня</p>
+            </div>
+            <div class="bg-white/5 p-5 rounded-xl border border-white/5">
+              <h4 class="font-bold text-[#D8B2FE] uppercase text-xs tracking-wider mb-3">💅 Наши цели</h4>
+              <ul class="list-disc pl-5 space-y-1 text-white/80">
+                <li>Разобраться со всеми делами за суперкороткий срок</li>
+                <li>Не сойти с ума</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-bold text-white uppercase text-base flex items-center gap-2">
+              <i class="fas fa-clipboard-list text-glow-lavender"></i> Как присоединиться и участвовать
+            </h4>
+            <div class="bg-black/20 p-5 rounded-xl border border-white/5 space-y-3">
+              <p><b>1.</b> Напишите свой первый отчет в топике: <a href="https://t.me/hardstudywinners/5" target="_blank" class="text-glow-lavender hover:underline break-all">t.me/hardstudywinners/5</a></p>
+              <p class="text-amber-300"><b>2. Важно:</b> присоединиться к марафону можно только в первые 4 дня (т.е. до 18 июня включительно). После этого новые участники не принимаются!</p>
+              <div class="space-y-1">
+                <p><b>3.</b> В каждом отчете <b>ОБЯЗАТЕЛЬНО</b> указывайте:</p>
+                <ul class="list-disc pl-8 text-white/80">
+                  <li>хештег марафона: <code class="bg-white/10 px-1.5 py-0.5 rounded text-white font-mono">#пятилетка</code></li>
+                  <li>ваш именной хештег (придумайте любой цензурный или используйте тот, который у вас в ypt)</li>
+                </ul>
+              </div>
+              <p><b>4.</b> Публикуйте отчеты каждый день до <b>23:59 по МСК</b></p>
+              <p class="text-xs text-white/50 italic">*Те, кто отправил отчеты после 23:59, появятся в рейтинге только на следующий день</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white/5 p-5 rounded-xl border border-white/5 font-mono text-xs md:text-sm">
+              <span class="text-glow-lavender block font-bold mb-2">Пример обычного отчета:</span>
+              <p>📅 День 1</p>
+              <p class="my-2">ОТЧЕТ ЗА 11.05.26:</p>
+              <p>- решила 2 ДЗ по математике</p>
+              <p>- выучила text по английскому</p>
+              <p>- порешала задачи по проге</p>
+              <p>- сделала зарядку и прогулялась</p>
+              <p class="mt-3 text-white/60">#ratigan<br>#пятилетка</p>
+            </div>
+            <div class="bg-white/5 p-5 rounded-xl border border-white/5 font-mono text-xs md:text-sm">
+              <span class="text-glow-lavender block font-bold mb-2">Пример day-off отчета:</span>
+              <p>📅 День 1</p>
+              <p class="my-2">ОТЧЕТ ЗА 15.06.26:</p>
+              <p>День-тюлень...(ака day-off)</p>
+              <p class="mt-9 text-white/60">#ratigan<br>#пятилетка</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-bold text-red-400 uppercase text-base flex items-center gap-2">
+              <i class="fas fa-exclamation-triangle"></i> Правила марафона
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="bg-red-500/5 p-5 rounded-xl border border-red-500/10">
+                <span class="font-bold block text-white mb-2">🎮 Система жизней:</span>
+                <ul class="list-disc pl-5 space-y-1 text-white/80 text-sm">
+                  <li>В начале у каждого 3 жизни</li>
+                  <li>За нарушение правил теряете 1 жизнь</li>
+                  <li>Если жизни закончились, то вы вылетаете из марафона без возможности вернуться</li>
+                </ul>
+              </div>
+              <div class="bg-red-500/5 p-5 rounded-xl border border-red-500/10">
+                <span class="font-bold block text-white mb-2">❌ За что теряем жизнь:</span>
+                <ul class="list-disc pl-5 space-y-1 text-white/80 text-sm">
+                  <li>Пропуск дня без отчета (не опубликовали отчет до 23:59 по МСК)</li>
+                  <li>В посте нет вообще никакого текстового описания учебы, только скрин из юпт, приложения с заметками и т.д (нужно прописывать вручную)</li>
+                  <li>Неправильно написали "day-off" или забыли про него</li>
+                  <li>Если в отчете нет учебных пунктов</li>
+                </ul>
+              </div>
+            </div>
+            <p class="text-xs text-white/60 italic">*Иишка может не все правильно обработать, поэтому, если вы заметите ошибку со снятием/неснятием жизни — пишите в чат.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-bold text-emerald-400 uppercase text-base flex items-center gap-2">
+              <i class="fas fa-fire"></i> Бонусы и возможности
+            </h4>
+            <div class="bg-emerald-500/5 p-5 rounded-xl border border-emerald-500/10 space-y-3 text-sm">
+              <p>• <b>Серия 8 дней:</b> если вы публикуете отчеты 8 дней подряд без пропусков, вы получаете <b>+1 дополнительную жизнь</b> (но всего у вас может быть не более 3 жизней).</p>
+              <p>• <b>day-off:</b> 1 раз за весь марафон можно взять выходной. Для этого просто опубликуйте пост с вашим хештегом, хештегом марафона и фразой "day-off" до 23:59 по МСК. Жизнь не отнимется, но серия дней обнулится.</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h4 class="font-bold text-purple-400 uppercase text-base flex items-center gap-2">
+              <i class="fas fa-trophy"></i> Классификация и награды
+            </h4>
+            <div class="bg-purple-500/5 p-5 rounded-xl border border-purple-500/10 text-sm space-y-2">
+              <p>😈 По окончании марафона всех выживших ждет распределение по <b>Секретной Классификации</b>.</p>
+              <p>🏅 <b>ТОП-5 ЛИДЕРОВ:</b> В пятерку лучших войдут участники, которые за всё время сохранили максимум жизней и собрали максимальную серию.</p>
+              <p>💎 <b>Награда:</b> Если попадёте в ТОП-5 участников по итогам марафона, то получите возможность выбрать себе титул (название должности), который будет отображаться рядом с вашим ником в этой группе.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-5 items-center justify-between border-t border-white/5 pt-8 mb-10">
+      <a href="https://t.me/hardstudywinners/5" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-purple-600 text-white font-bold uppercase tracking-wider text-xs no-underline transition-all hover:bg-purple-500 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] active:scale-95">
+        <i class="fab fa-telegram-plane text-base"></i> Отправить отчет в тг
       </a>
       
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSddq4ATIUToMYS60pxkUHBDzSs5fWTxKhEMN5udhVnXlx69LA/viewform?usp=dialog" target="_blank" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 text-xs text-[#D8B2FE]/80 hover:text-white transition-colors bg-white/5 px-5 py-3 rounded-lg border border-white/5 hover:border-[#D8B2FE]/30 font-medium">
@@ -85,9 +200,41 @@
       </a>
     </div>
 
+    <div class="border-t border-white/5 pt-8">
+      <div class="glass-card p-5 md:p-8 overflow-hidden flex flex-col bg-black/10">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+          <h3 class="text-lg md:text-xl font-bold text-white flex items-center gap-3 uppercase">
+            <i class="fas fa-users text-[#D8B2FE]"></i> Текущая таблица участников
+          </h3>
+          <p class="text-xs text-white/50 font-mono">Обновление: ежедневно после 23:59 МСК</p>
+        </div>
+        
+        <div class="overflow-x-auto -mx-2 px-2 scrollbar-thin scrollbar-thumb-white/10">
+          <table class="w-full text-left text-xs md:text-sm min-w-[500px] md:min-w-full">
+            <thead class="text-[#D8B2FE]/40 text-[9px] md:text-[10px] uppercase font-bold tracking-widest border-b border-white/5">
+              <tr>
+                <th class="pb-4 pr-2 w-12 pl-2">#</th>
+                <th class="pb-4 pr-4">Участник</th>
+                <th class="pb-4 pr-4">Жизни</th>
+                <th class="pb-4 text-center w-16">Отчёты</th>
+                <th class="pb-4 text-center w-20">Day-off</th>
+                <th class="pb-4 text-right w-16 pr-2">Серия</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5">
+              <tr>
+                <td colspan="6" class="py-12 text-center text-white/40 font-mono text-xs md:text-sm animate-pulse">
+                  <i class="fas fa-calculator mr-2 text-purple-400"></i> Данные за первые дни обрабатываются ИИ. Таблица со статистикой появится в ближайшее время.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
-
 
 <div id="marathon-archive" class="hidden space-y-6 mt-8 md:mt-12">
   <div id="archive-placeholder" class="text-white/60 text-sm font-mono animate-pulse text-center py-8">

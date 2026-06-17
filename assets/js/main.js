@@ -30,7 +30,7 @@ async function showTab(tabId) {
     
     if (tabId === 'marathon') {
       isArchiveLoaded = false; 
-      updateP6Countdown();
+      updateMarathonTimer(); 
     }
   } catch (error) {
     console.error("Не удалось загрузить компонент:", error);
@@ -134,35 +134,31 @@ function closeArchiveMarathon() {
   }
 }
 
-function updateP6Countdown() {
-  const timerElement = document.getElementById('countdown-timer-6');
-  if (!timerElement) return; 
-  
-  try {
-    const now = new Date();
-    const targetTargetMSK = new Date('2026-06-15T00:00:00+03:00'); 
-    
-    let diff = targetTargetMSK - now;
-    if (diff < 0) {
-      timerElement.textContent = "00:00:00";
-      return;
-    }
-    
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    
-    timerElement.textContent = [
-      hours.toString().padStart(2, '0'),
-      minutes.toString().padStart(2, '0'),
-      seconds.toString().padStart(2, '0')
-    ].join(':');
-  } catch (e) {
-    timerElement.textContent = "00:00:00";
+function updateMarathonTimer() {
+  const timerElement = document.getElementById('marathon-timer');
+  if (!timerElement) return;
+
+  const now = new Date();
+  const mskOffset = 3 * 60 * 60 * 1000;
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60 * 1000);
+  const mskNow = new Date(utc + mskOffset);
+  const mskDeadline = new Date(mskNow);
+  mskDeadline.setHours(23, 59, 0, 0);
+
+  if (mskNow >= mskDeadline) {
+    mskDeadline.setDate(mskDeadline.getDate() + 1);
   }
+  
+  const diff = mskDeadline - mskNow;
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  const pad = (num) => String(num).padStart(2, '0');
+  
+  timerElement.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
 }
 
-setInterval(updateP6Countdown, 1000);
+setInterval(updateMarathonTimer, 1000);
 
 document.addEventListener('DOMContentLoaded', () => {
   showTab('info');
