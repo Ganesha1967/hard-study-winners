@@ -12,21 +12,13 @@
     <div class="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 blur-[100px] rounded-full -mr-32 -mt-32"></div>
     <div class="relative z-10 flex flex-col lg:flex-row justify-between items-center lg:items-end gap-6 md:gap-10 text-center lg:text-left">
       <div class="space-y-4">
-        <div class="inline-block px-4 py-1 bg-emerald-500/20 rounded-full text-emerald-300 text-[9px] md:text-[10px] font-bold tracking-widest border border-emerald-500/30 uppercase animate-pulse">
-          Марафон идет
+        <div class="inline-block px-4 py-1 bg-red-500/20 rounded-full text-red-300 text-[9px] md:text-[10px] font-bold tracking-widest border border-red-500/30 uppercase animate-pulse">
+          Марафон завершен
         </div>
         <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tighter uppercase leading-none">
           Пятилетка 6.0
         </h2>
         <p class="text-xs md:text-sm text-white/60 font-mono">Период проведения: 15.06.2026 - 30.06.2026</p>
-      </div>
-      <div class="min-w-[200px] lg:text-right">
-        <p class="text-[9px] md:text-[10px] text-purple-300/60 uppercase tracking-[0.3em] md:tracking-[0.4em] mb-2 font-bold">
-          До дедлайна отчетов (23:59 МСК):
-        </p>
-        <p id="marathon-timer" class="text-3xl md:text-5xl font-unbounded text-purple-400 italic tracking-tighter leading-none font-bold">
-          00:00:00
-        </p>
       </div>
     </div>
   </div>
@@ -200,143 +192,236 @@
       </a>
     </div>
 
-    <!-- СТАТИСТИКА МАРАФОНА 6.0 -->
-    <div class="border-t border-white/5 pt-8">
+    <!-- ИТОГОВАЯ СТАТИСТИКА -->
+    <div class="border-b border-white/5 pb-5 mb-6">
+      <h3 class="font-extrabold text-xl md:text-2xl text-white uppercase tracking-tight flex items-center gap-3.5">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+        </span>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-purple-200">
+          Итоги марафона Пятилетка 6.0
+        </span>
+      </h3>
+    </div>
+
+    <!-- ОСНОВНАЯ СТАТИСТИКА -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 font-mono text-xs md:text-sm">
+      <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+        <p class="text-white/50 text-[10px] uppercase tracking-wider">Длительность</p>
+        <p class="text-white font-bold text-lg">16 дней</p>
+      </div>
+      <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+        <p class="text-white/50 text-[10px] uppercase tracking-wider">Участников</p>
+        <p class="text-white font-bold text-lg">20</p>
+      </div>
+      <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+        <p class="text-white/50 text-[10px] uppercase tracking-wider">Выживаемость</p>
+        <p class="text-emerald-400 font-bold text-lg">55%</p>
+      </div>
+      <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+        <p class="text-white/50 text-[10px] uppercase tracking-wider">Всего отчётов</p>
+        <p class="text-purple-400 font-bold text-lg">209</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-8">
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 items-start">
-
-
-        <div class="glass-card p-5 md:p-8 border-l-4 border-emerald-500/50">
-          <h3 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 flex items-center gap-3 uppercase">
-            <i class="fas fa-chart-pie text-emerald-400"></i> Общая статистика
-          </h3>
-            <div class="space-y-3 md:space-y-4 text-xs md:text-sm">
-              <p class="text-white/80">├ Участников: <span class="text-white font-bold">20</span></p>
-              <p class="text-white/80">├ Активных: <span class="text-emerald-400 font-bold">15 (75%)</span></p>
-              <p class="text-white/80">├ Выбывших: <span class="text-red-400 font-bold">5</span></p>
-              <p class="text-white/80">└ Всего отчётов: <span class="text-purple-400 font-bold">163</span></p>
-            </div>
+      <!-- ОБЩАЯ СТАТИСТИКА -->
+      <div class="glass-card p-5 md:p-8 border-l-4 border-emerald-500/50">
+        <h3 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 flex items-center gap-3 uppercase">
+          <i class="fas fa-chart-pie text-emerald-400"></i> Общая статистика
+        </h3>
+        <div class="space-y-3 md:space-y-4 text-xl md:text-xl">
+          <p class="text-white/80">├ Всего дней: <span class="text-white font-bold">16</span></p>
+          <p class="text-white/80">├ Участников: <span class="text-white font-bold">20</span></p>
+          <p class="text-white/80">├ Активных: <span class="text-emerald-400 font-bold">11</span></p>
+          <p class="text-white/80">├ Выбывших: <span class="text-red-400 font-bold">9</span></p>
+          <p class="text-white/80">├ Всего отчётов: <span class="text-purple-400 font-bold">209</span></p>
+          <p class="text-white/80">├ Выживаемость: <span class="text-emerald-400 font-bold">55.0%</span></p>
+          <p class="text-white/80">└ Пиковая активность: <span class="text-white font-bold">17 отч/день</span></p>
         </div>
+      </div>
 
-
-        <div class="glass-card p-5 md:p-8">
-          <h3 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 uppercase flex items-center gap-3">
-            <i class="fas fa-calendar-week text-[#D8B2FE]"></i> Прогресс недели
-          </h3>
-            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-              <span>ПН: 13 отчётов</span><span class="text-green-400">✅</span>
-            </div>
-            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-              <span>ВТ: 13 отчётов</span><span class="text-green-400">✅</span>
-            </div>
-            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-              <span>СР: 13 отчётов</span><span class="text-green-400">✅</span>
-            </div>
-            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-              <span>ЧТ: 13 отчётов</span><span class="text-green-400">✅</span>
-            </div>
-            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-              <span>ПТ: 12 отчётов</span><span class="text-green-400">✅</span>
-            </div>
-            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-              <span>СБ: 0 отчётов</span><span class="text-white/40">-</span>
-            </div>
-            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-              <span>ВС: 0 отчётов</span><span class="text-white/40">-</span>
-            </div>
+      <!-- АКТИВНОСТЬ ПО ДНЯМ НЕДЕЛИ -->
+      <div class="glass-card p-5 md:p-8">
+        <h3 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 uppercase flex items-center gap-3">
+          <i class="fas fa-calendar-week text-[#D8B2FE]"></i> Активность по дням недели (среднее)
+        </h3>
+        <div class="space-y-2 md:space-y-3 font-mono text-[10px] md:text-xs">
+          <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+            <span>ПН</span><span class="text-white font-bold">13.0</span>
+          </div>
+          <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+            <span>ВТ</span><span class="text-white font-bold">11.33</span>
+          </div>
+          <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+            <span>СР</span><span class="text-white font-bold">14.5</span>
+          </div>
+          <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+            <span>ЧТ</span><span class="text-white font-bold">15.0</span>
+          </div>
+          <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+            <span>ПТ</span><span class="text-white font-bold">13.0</span>
+          </div>
+          <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+            <span>СБ</span><span class="text-white font-bold">13.0</span>
+          </div>
+          <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+            <span>ВС</span><span class="text-white font-bold">12.5</span>
           </div>
         </div>
-
-      </div>
-
-      <!-- ТАБЛИЦА УЧАСТНИКОВ -->
-      <div class="glass-card p-5 md:p-8 overflow-hidden flex flex-col bg-black/10">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-          <h3 class="text-lg md:text-xl font-bold text-white flex items-center gap-3 uppercase">
-            <i class="fas fa-users text-[#D8B2FE]"></i> Все участники
-          </h3>
-          <div class="flex items-center gap-4 text-xs">
-            <span class="text-purple-300/60 font-mono">ДЕНЬ 12</span>
-            <span class="text-white/40 font-mono">Обновлено: 27.06.2026</span>
-          </div>
-        </div>
-        
-        <div class="overflow-x-auto -mx-2 px-2 scrollbar-thin scrollbar-thumb-white/10">
-          <table class="w-full text-left text-xs md:text-sm min-w-[500px] md:min-w-full">
-            <thead class="text-[#D8B2FE]/40 text-[9px] md:text-[10px] uppercase font-bold tracking-widest border-b border-white/5">
-              <tr>
-                <th class="pb-4 pr-2 w-12 pl-2">#</th>
-                <th class="pb-4 pr-4">Участник</th>
-                <th class="pb-4 pr-4">Жизни</th>
-                <th class="pb-4 text-center w-16">Отчёты</th>
-                <th class="pb-4 text-center w-20">Day-off</th>
-                <th class="pb-4 text-right w-16 pr-2">Серия</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-white/5">
-              <tr><td class="py-3 pl-2 text-white/40">1</td><td class="font-bold text-white">#_Olga_</td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">12</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">12</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">2</td><td class="font-bold text-white">#amphibian</td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">12</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">12</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">3</td><td class="font-bold text-white">#enolam</td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">12</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">12</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">4</td><td class="font-bold text-white">#hikonora</td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">12</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">12</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">5</td><td class="font-bold text-white">#mannaay</td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">12</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">12</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">6</td><td class="font-bold text-white">#ratigan</td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">11</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">10</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">7</td><td class="font-bold text-white">#styli179</td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">10</td><td class="text-center text-cyan-400">1</td><td class="text-right text-white/80">2</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">8</td><td class="font-bold text-white">#sjvvjs</td><td class="text-[#D8B2FE]">❤️❤️</td><td class="text-center text-emerald-300">10</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">8</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">9</td><td class="font-bold text-white">#cppyaka</td><td class="text-[#D8B2FE]">❤️❤️</td><td class="text-center text-emerald-300">11</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">3</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">10</td><td class="font-bold text-white">#merlin</td><td class="text-[#D8B2FE]">❤️</td><td class="text-center text-emerald-300">9</td><td class="text-center text-cyan-400">1</td><td class="text-right text-white/80">4</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">11</td><td class="font-bold text-white">#nautilus</td><td class="text-[#D8B2FE]">❤️</td><td class="text-center text-emerald-300">9</td><td class="text-center text-cyan-400">1</td><td class="text-right text-white/80">0</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">12</td><td class="font-bold text-white">#relentlesss</td><td class="text-[#D8B2FE]">❤️</td><td class="text-center text-emerald-300">10</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">3</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">13</td><td class="font-bold text-white">#меридианочка</td><td class="text-[#D8B2FE]">❤️</td><td class="text-center text-emerald-300">6</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">1</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">14</td><td class="font-bold text-white">#2weeks2live2</td><td class="text-[#D8B2FE]">❤️</td><td class="text-center text-emerald-300">10</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">0</td></tr>
-              <tr><td class="py-3 pl-2 text-white/40">15</td><td class="font-bold text-white">#purple_penguin</td><td class="text-[#D8B2FE]">❤️</td><td class="text-center text-emerald-300">9</td><td class="text-center text-cyan-400">1</td><td class="text-right text-white/80">0</td></tr>
-              <!-- Выбывшие -->
-              <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">16</td><td class="font-bold text-red-400">#cofize</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
-              <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">17</td><td class="font-bold text-red-400">#веня</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
-              <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">18</td><td class="font-bold text-red-400">#летучаямышь</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
-              <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">19</td><td class="font-bold text-red-400">#rescuid</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
-              <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">20</td><td class="font-bold text-red-400">#yuki</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-4 md:gap-6 text-[9px] md:text-[10px] text-[#D8B2FE]/50 uppercase font-bold tracking-widest">
-          <span class="flex items-center gap-1"><i class="fas fa-umbrella-beach"></i> day-off</span>
-          <span>#пятилетка</span>
+        <div class="mt-3 pt-3 border-t border-white/5 text-[14px] text-white/60">
+          <p>Самый активный день: <span class="text-emerald-400 font-bold">ЧТ (15.0)</span></p>
+          <p>Самый неактивный день: <span class="text-white/40">ВТ (11.33)</span></p>
         </div>
       </div>
+    </div>
 
-      <!-- ЗОНА РИСКА -->
-      <div class="mt-6 p-4 rounded-xl border border-red-500/30 bg-gradient-to-r from-red-950/20 to-transparent">
-        <h4 class="text-sm font-bold text-red-400 uppercase flex items-center gap-2 mb-3">
-          <i class="fas fa-skull-crossbones"></i> Зона риска
-        </h4>
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs md:text-sm">
-              <thead class="text-red-400/60 text-[9px] uppercase font-bold tracking-widest border-b border-red-500/20">
-                <tr>
-                  <th class="pb-2 pr-4 w-8">#</th>
-                  <th class="pb-2 pr-4">Участник</th>
-                  <th class="pb-2 pr-4">Жизни</th>
-                  <th class="pb-2 text-center w-16">Отчёты</th>
-                  <th class="pb-2 text-right w-16">Серия</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-red-500/10">
-              <tr><td class="py-2 text-red-400 font-bold">1</td><td class="font-bold text-white font-mono">#merlin </td><td class="text-red-400 font-bold">❤️</td><td class="text-center text-white/80">9</td><td class="text-right text-white/80">4</td></tr>
-              <tr><td class="py-2 text-red-400 font-bold">2</td><td class="font-bold text-white font-mono">#nautilus </td><td class="text-red-400 font-bold">❤️</td><td class="text-center text-white/80">9</td><td class="text-right text-white/80">0</td></tr>
-              <tr><td class="py-2 text-red-400 font-bold">3</td><td class="font-bold text-white font-mono">#relentlesss </td><td class="text-red-400 font-bold">❤️</td><td class="text-center text-white/80">10</td><td class="text-right text-white/80">3</td></tr>
-              <tr><td class="py-2 text-red-400 font-bold">4</td><td class="font-bold text-white font-mono">#меридианочка </td><td class="text-red-400 font-bold">❤️</td><td class="text-center text-white/80">6</td><td class="text-right text-white/80">1</td></tr>
-              <tr><td class="py-2 text-red-400 font-bold">5</td><td class="font-bold text-white font-mono">#2weeks2live2 </td><td class="text-red-400 font-bold">❤️</td><td class="text-center text-white/80">10</td><td class="text-right text-white/80">0</td></tr>
-              <tr><td class="py-2 text-red-400 font-bold">6</td><td class="font-bold text-white font-mono">#purple_penguin </td><td class="text-red-400 font-bold">❤️</td><td class="text-center text-white/80">9</td><td class="text-right text-white/80">0</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="mt-3 pt-3 border-t border-red-500/20 text-center">
-          <p class="text-[10px] text-red-400/70 uppercase tracking-wide flex items-center justify-center gap-2">
-            <i class="fas fa-exclamation-triangle"></i> Следующая ошибка станет фатальной!
-          </p>
+    <!-- ВЫБЫВАНИЕ УЧАСТНИКОВ -->
+    <div class="glass-card p-5 md:p-8 mb-8">
+      <h3 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 uppercase flex items-center gap-3">
+        <i class="fas fa-skull text-red-400"></i> Выбывание участников
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2 text-center">
+        <div class="bg-white/5 p-2 rounded-lg"><span class="text-white/60 text-[12px] block">15.06</span><span class="text-white font-bold">0</span></div>
+        <div class="bg-white/5 p-2 rounded-lg"><span class="text-white/60 text-[12px] block">16.06</span><span class="text-white font-bold">0</span></div>
+        <div class="bg-white/5 p-2 rounded-lg"><span class="text-white/60 text-[12px] block">17.06</span><span class="text-white font-bold">0</span></div>
+        <div class="bg-white/5 p-2 rounded-lg border border-red-500/30"><span class="text-white/60 text-[12px] block">18.06</span><span class="text-red-400 font-bold">1 ⚠️</span></div>
+        <div class="bg-white/5 p-2 rounded-lg"><span class="text-white/60 text-[12px] block">19.06</span><span class="text-white font-bold">0</span></div>
+        <div class="bg-white/5 p-2 rounded-lg border border-red-500/30"><span class="text-white/60 text-[12px] block">20.06</span><span class="text-red-400 font-bold">1 ⚠️</span></div>
+        <div class="bg-white/5 p-2 rounded-lg border border-red-500/30"><span class="text-white/60 text-[12px] block">21.06</span><span class="text-red-400 font-bold">3 ⚠️</span></div>
+        <div class="bg-white/5 p-2 rounded-lg"><span class="text-white/60 text-[12px] block">22.06</span><span class="text-white font-bold">0</span></div>
+        <div class="bg-white/5 p-2 rounded-lg"><span class="text-white/60 text-[12px] block">23.06</span><span class="text-white font-bold">0</span></div>
+        <div class="bg-white/5 p-2 rounded-lg"><span class="text-white/60 text-[12px] block">24.06</span><span class="text-white font-bold">0</span></div>
+        <div class="bg-white/5 p-2 rounded-lg"><span class="text-white/60 text-[12px] block">25.06</span><span class="text-white font-bold">0</span></div>
+        <div class="bg-white/5 p-2 rounded-lg"><span class="text-white/60 text-[12px] block">26.06</span><span class="text-white font-bold">0</span></div>
+        <div class="bg-white/5 p-2 rounded-lg border border-red-500/30"><span class="text-white/60 text-[12px] block">27.06</span><span class="text-red-400 font-bold">3 ⚠️</span></div>
+        <div class="bg-white/5 p-2 rounded-lg border border-red-500/30"><span class="text-white/60 text-[12px] block">28.06</span><span class="text-red-400 font-bold">1 ⚠️</span></div>
+        <div class="bg-white/5 p-2 rounded-lg"><span class="text-white/60 text-[12px] block">29.06</span><span class="text-white font-bold">0</span></div>
+        <div class="bg-white/5 p-2 rounded-lg"><span class="text-white/60 text-[12px] block">30.06</span><span class="text-white font-bold">0</span></div>
+      </div>
+      <div class="mt-3 pt-3 border-t border-white/5 text-[14px] text-white/60">
+        <p>День с наибольшим количеством выбывших: <span class="text-red-400 font-bold">21.06.2026 (3)</span></p>
+        <p>Среднее время выбывания: <span class="text-white font-bold">7.1 дней</span></p>
+      </div>
+    </div>
+
+    <!-- ДЕТАЛЬНЫЙ СПИСОК УЧАСТНИКОВ -->
+    <div class="glass-card p-5 md:p-8 overflow-hidden flex flex-col bg-black/10 mb-8">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+        <h3 class="text-lg md:text-xl font-bold text-white flex items-center gap-3 uppercase">
+          <i class="fas fa-users text-[#D8B2FE]"></i> Детальный список участников
+        </h3>
+        <div class="flex items-center gap-4 text-xs">
+          <span class="text-purple-300/60 font-mono">ФИНИШ</span>
         </div>
       </div>
+      
+      <div class="overflow-x-auto -mx-2 px-2">
+        <table class="w-full text-left text-xs md:text-sm min-w-[500px] md:min-w-full">
+          <thead class="text-[#D8B2FE]/40 text-[9px] md:text-[10px] uppercase font-bold tracking-widest border-b border-white/5">
+            <tr>
+              <th class="pb-4 pr-2 w-12 pl-2">#</th>
+              <th class="pb-4 pr-4">Участник</th>
+              <th class="pb-4 pr-4">Жизни</th>
+              <th class="pb-4 text-center w-16">Отчёты</th>
+              <th class="pb-4 text-center w-20">Day-off</th>
+              <th class="pb-4 text-right w-16 pr-2">Серия</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5">
+            <tr><td class="py-3 pl-2 text-white/40">1</td><td class="font-bold text-white">#amphibian <span class="text-xs text-amber-400">🔥</span></td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">16</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">16</td></tr>
+            <tr><td class="py-3 pl-2 text-white/40">2</td><td class="font-bold text-white">#enolam <span class="text-xs text-amber-400">🔥</span></td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">16</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">16</td></tr>
+            <tr><td class="py-3 pl-2 text-white/40">3</td><td class="font-bold text-white">#hikonora <span class="text-xs text-amber-400">🔥</span></td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">16</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">16</td></tr>
+            <tr><td class="py-3 pl-2 text-white/40">4</td><td class="font-bold text-white">#mannaay <span class="text-xs text-amber-400">🔥</span></td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">16</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">16</td></tr>
+            <tr><td class="py-3 pl-2 text-white/40">5</td><td class="font-bold text-white">#ratigan <span class="text-xs text-amber-400">🔥</span></td><td class="text-[#D8B2FE]">❤️❤️❤️</td><td class="text-center text-emerald-300">15</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">14</td></tr>
+            <tr><td class="py-3 pl-2 text-white/40">6</td><td class="font-bold text-white">#sjvvjs</td><td class="text-[#D8B2FE]">❤️❤️</td><td class="text-center text-emerald-300">14</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">12</td></tr>
+            <tr><td class="py-3 pl-2 text-white/40">7</td><td class="font-bold text-white">#styli179</td><td class="text-[#D8B2FE]">❤️❤️</td><td class="text-center text-emerald-300">14</td><td class="text-center text-cyan-400">1</td><td class="text-right text-white/80">6</td></tr>
+            <tr><td class="py-3 pl-2 text-white/40">9</td><td class="font-bold text-white">#relentlesss</td><td class="text-[#D8B2FE]">❤️</td><td class="text-center text-emerald-300">14</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">7</td></tr>
+            <tr><td class="py-3 pl-2 text-white/40">8</td><td class="font-bold text-white">#nautilus</td><td class="text-[#D8B2FE]">❤️</td><td class="text-center text-emerald-300">13</td><td class="text-center text-cyan-400">1</td><td class="text-right text-white/80">4</td></tr>
+            <tr><td class="py-3 pl-2 text-white/40">10</td><td class="font-bold text-white">#_Olga_</td><td class="text-[#D8B2FE]">❤️</td><td class="text-center text-emerald-300">14</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">0</td></tr>
+            <tr><td class="py-3 pl-2 text-white/40">11</td><td class="font-bold text-white">#cppyaka</td><td class="text-[#D8B2FE]">❤️</td><td class="text-center text-emerald-300">14</td><td class="text-center text-white/40">0</td><td class="text-right text-white/80">0</td></tr>
+            <!-- Выбывшие -->
+            <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">12</td><td class="font-bold text-red-400">#purple_penguin</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
+            <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">13</td><td class="font-bold text-red-400">#yuki</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
+            <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">14</td><td class="font-bold text-red-400">#веня</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
+            <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">15</td><td class="font-bold text-red-400">#2weeks2live2</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
+            <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">16</td><td class="font-bold text-red-400">#rescuid</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
+            <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">17</td><td class="font-bold text-red-400">#merlin</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
+            <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">18</td><td class="font-bold text-red-400">#летучаямышь</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
+            <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">19</td><td class="font-bold text-red-400">#cofize</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
+            <tr class="opacity-50 bg-red-950/10"><td class="py-3 pl-2 text-red-400">20</td><td class="font-bold text-red-400">#меридианочка</td><td class="text-white/20">❌</td><td class="text-center">-</td><td class="text-center">-</td><td class="text-right">-</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-4 md:gap-6 text-[9px] md:text-[10px] text-[#D8B2FE]/50 uppercase font-bold tracking-widest">
+        <span class="flex items-center gap-1"><i class="fas fa-umbrella-beach"></i> day-off</span>
+        <span class="flex items-center gap-1"><span class="text-amber-400">🔥</span> ТОП-5</span>
+        <span>#пятилетка</span>
+      </div>
+    </div>
+
+    <!-- КЛАССИФИКАЦИЯ ПО МУТАНТАМ -->
+    <div class="glass-card p-5 md:p-8 mb-8 border border-purple-500/20 bg-gradient-to-r from-purple-950/10 to-transparent">
+      <h3 class="text-lg md:text-xl font-bold text-purple-400 mb-4 md:mb-6 uppercase flex items-center gap-3">
+        <i class="fas fa-dna"></i> Классификация "Люди Икс"
+      </h3>
+      <div class="space-y-3 md:space-y-4 text-xs md:text-sm">
+        <div class="flex flex-wrap items-center gap-2 p-3 bg-white/5 rounded-xl border border-white/5">
+          <span class="text-purple-400 font-bold">Профессор Икс</span>
+          <span class="text-white/60">(Сверх-стрик 14+):</span>
+          <span class="text-white font-bold">#hikonora, #amphibian, #mannaay, #ratigan, #enolam</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 p-3 bg-white/5 rounded-xl border border-white/5">
+          <span class="text-blue-400 font-bold">Зверь</span>
+          <span class="text-white/60">(Стрик 10+):</span>
+          <span class="text-white font-bold">#sjvvjs</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 p-3 bg-white/5 rounded-xl border border-white/5">
+          <span class="text-pink-400 font-bold">Джин Грей</span>
+          <span class="text-white/60">(Количество отчётов >=40%):</span>
+          <span class="text-white/40">пусто</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 p-3 bg-white/5 rounded-xl border border-white/5">
+          <span class="text-yellow-400 font-bold">Росомаха</span>
+          <span class="text-white/60">(Стрик 4-6 дней):</span>
+          <span class="text-white font-bold">#styli179</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 p-3 bg-white/5 rounded-xl border border-white/5">
+          <span class="text-red-400 font-bold">Дэдпул</span>
+          <span class="text-white/60">(На грани вылета: 1 жизнь):</span>
+          <span class="text-white font-bold">#cppyaka, #nautilus, #_Olga_, #relentlesss</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 p-3 bg-red-950/20 rounded-xl border border-red-500/20">
+          <span class="text-red-500 font-bold">Уничтожены Стражами:</span>
+          <span class="text-white/60">#purple_penguin, #yuki, #веня, #2weeks2live2, #rescuid, #merlin, #летучаямышь, #cofize, #меридианочка</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- НАГРАДЫ МЕСЯЦА -->
+    <div class="glass-card p-5 md:p-8 border border-amber-500/20 bg-gradient-to-r from-amber-950/10 to-transparent">
+      <h3 class="text-lg md:text-xl font-bold text-amber-400 mb-4 md:mb-6 uppercase flex items-center gap-3">
+        <i class="fas fa-trophy"></i> Награды месяца
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+        <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+          <p class="text-amber-400 font-bold">Самые дисциплинированные</p>
+          <p class="text-white">#hikonora, #amphibian, #mannaay, #enolam</p>
+          <p class="text-white/60 text-[14px] mt-1">(серия совпадает с количеством дней)</p>
+        </div>
+        <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+          <p class="text-amber-400 font-bold">Ранняя пташка</p>
+          <p class="text-white">00:00:36 - <span class="font-bold">#nautilus</span></p>
+        </div>
+        <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+          <p class="text-amber-400 font-bold">Ночная сова</p>
+          <p class="text-white">23:58:39 - <span class="font-bold">#enolam</span></p>
+        </div>
+      </div>
+    </div>
 
     </div>
 
