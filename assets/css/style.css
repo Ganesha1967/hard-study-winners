@@ -126,3 +126,699 @@ h1, h2, h3, .font-unbounded {
   background-color: rgba(124, 58, 237, 0.2);
   border: 1px solid rgba(124, 58, 237, 0.3);
 }
+
+/* ==========================================
+   СТИЛИ ДЛЯ ТРЕКЕРА ПРИВЫЧЕК (ОБНОВЛЕННЫЕ)
+   ========================================== */
+
+#habits-table-container {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.02);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(216, 178, 254, 0.3) transparent;
+}
+
+#habits-table-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+#habits-table-container::-webkit-scrollbar-track {
+  background: rgba(32, 23, 77, 0.5);
+  border-radius: 10px;
+}
+
+#habits-table-container::-webkit-scrollbar-thumb {
+  background: var(--accent-purple);
+  border-radius: 10px;
+}
+
+#habits-table-container table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+#habits-table-container thead th {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #20174D;
+  backdrop-filter: blur(10px);
+  padding: 10px 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(216, 178, 254, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Закрепленная первая колонка */
+.sticky-col {
+  position: sticky;
+  left: 0;
+  z-index: 25;
+  background: #20174D;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  min-width: 220px;
+  max-width: 260px;
+}
+
+tr:hover .sticky-col {
+  background: rgba(125, 87, 191, 0.15);
+}
+
+/* Строки таблицы */
+#habits-table-container tbody tr {
+  transition: background 0.2s ease;
+}
+
+#habits-table-container tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+#habits-table-container tbody tr:hover {
+  background: rgba(125, 87, 191, 0.10);
+}
+
+#habits-table-container tbody td {
+  padding: 6px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  vertical-align: middle;
+}
+
+/* Дни недели в шапке */
+.day-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+  min-width: 40px;
+  padding: 4px 0;
+}
+
+.day-header .day-number {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.day-header .day-name {
+  font-size: 10px;
+  opacity: 0.5;
+  text-transform: lowercase;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(216, 178, 254, 0.7);
+}
+
+.day-header .day-number.today {
+  color: var(--glow-lavender);
+  text-shadow: 0 0 20px rgba(216, 178, 254, 0.4);
+}
+
+/* Кнопки дней */
+.habit-day-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.habit-day-btn:hover:not(:disabled) {
+  transform: scale(1.12);
+  border-color: rgba(125, 87, 191, 0.4);
+  background: rgba(125, 87, 191, 0.15);
+}
+
+.habit-day-btn:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.habit-day-btn.completed {
+  background: rgba(52, 211, 153, 0.25);
+  border-color: rgba(52, 211, 153, 0.5);
+  color: #34d399;
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.15);
+}
+
+.habit-day-btn.completed:hover {
+  background: rgba(52, 211, 153, 0.35);
+}
+
+.habit-day-btn.today {
+  ring: 2px solid rgba(125, 87, 191, 0.5);
+  background: rgba(125, 87, 191, 0.15);
+}
+
+.habit-day-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.habit-day-btn.weekend {
+  background: rgba(255, 0, 80, 0.04);
+}
+
+/* Прогресс-бар в строке привычки */
+.habit-row-progress {
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.habit-row-progress .fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.habit-row-progress .fill.emerald { background: #34d399; }
+.habit-row-progress .fill.amber { background: #f59e0b; }
+.habit-row-progress .fill.red { background: #ef4444; }
+
+/* Название привычки в строке */
+.habit-name-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px;
+  min-height: 54px;
+}
+
+.habit-name-cell .name {
+  font-weight: 600;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: #F3E8FF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.habit-name-cell .name:hover {
+  color: var(--glow-lavender);
+  text-shadow: 0 0 12px rgba(216, 178, 254, 0.4);
+}
+
+.habit-name-cell .name .icon {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.habit-name-cell .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+}
+
+.habit-name-cell .meta .percent {
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.habit-name-cell .meta .count {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 10px;
+}
+
+/* Кнопки действий */
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 8px;
+}
+
+.actions-cell button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.actions-cell button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.actions-cell .rename-btn:hover {
+  color: var(--glow-lavender);
+}
+
+.actions-cell .delete-btn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.15);
+}
+
+/* Сегодняшняя ячейка */
+.today-cell {
+  background: rgba(125, 87, 191, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(125, 87, 191, 0.15);
+}
+
+/* Выходные */
+.weekend-cell {
+  background: rgba(255, 0, 80, 0.03);
+}
+
+/* ==========================================
+   ПРОГРЕСС-БАРЫ В КАРТОЧКАХ
+   ========================================== */
+
+.habit-progress-bar {
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   МОДАЛЬНЫЕ ОКНА
+   ========================================== */
+
+#burnout-modal .glass-card,
+.modal-animate {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ==========================================
+   ГРАФИК ВЫГОРАНИЯ
+   ========================================== */
+
+#burnout-bars > div {
+  transition: all 0.3s ease;
+}
+
+#burnout-bars > div:hover {
+  transform: scaleY(1.05);
+}
+
+
+/* ==========================================
+   НОВЫЕ СТИЛИ ДЛЯ ОБНОВЛЕННОЙ ТАБЛИЦЫ
+   ========================================== */
+
+#habits-table-container {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.02);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(216, 178, 254, 0.3) transparent;
+}
+
+#habits-table-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+#habits-table-container::-webkit-scrollbar-track {
+  background: rgba(32, 23, 77, 0.5);
+  border-radius: 10px;
+}
+
+#habits-table-container::-webkit-scrollbar-thumb {
+  background: var(--accent-purple);
+  border-radius: 10px;
+}
+
+#habits-table-container table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+#habits-table-container thead th {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #20174D;
+  backdrop-filter: blur(10px);
+  padding: 10px 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(216, 178, 254, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sticky-col {
+  position: sticky;
+  left: 0;
+  z-index: 25;
+  background: #20174D;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  min-width: 200px;
+}
+
+tr:hover .sticky-col {
+  background: rgba(125, 87, 191, 0.15);
+}
+
+#habits-table-container tbody tr {
+  transition: background 0.2s ease;
+}
+
+#habits-table-container tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+#habits-table-container tbody tr:hover {
+  background: rgba(125, 87, 191, 0.10);
+}
+
+#habits-table-container tbody td {
+  padding: 6px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  vertical-align: middle;
+}
+
+.day-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+  min-width: 32px;
+}
+
+.day-header .day-number {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.day-header .day-name {
+  font-size: 8px;
+  opacity: 0.5;
+  text-transform: lowercase;
+  font-weight: 400;
+}
+
+.habit-day-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.habit-day-btn:hover:not(:disabled) {
+  transform: scale(1.12);
+  border-color: rgba(125, 87, 191, 0.4);
+  background: rgba(125, 87, 191, 0.15);
+}
+
+.habit-day-btn:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.habit-day-btn.completed {
+  background: rgba(52, 211, 153, 0.25);
+  border-color: rgba(52, 211, 153, 0.5);
+  color: #34d399;
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.15);
+}
+
+.habit-day-btn.completed:hover {
+  background: rgba(52, 211, 153, 0.35);
+}
+
+.habit-day-btn.today {
+  ring: 2px solid rgba(125, 87, 191, 0.5);
+  background: rgba(125, 87, 191, 0.15);
+}
+
+.habit-day-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.habit-day-btn.weekend {
+  background: rgba(255, 0, 80, 0.04);
+}
+
+.habit-name-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 12px;
+}
+
+.habit-name-cell .name {
+  font-weight: 600;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.habit-name-cell .name:hover {
+  color: var(--glow-lavender);
+}
+
+.habit-name-cell .name .habit-title-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.habit-name-cell .name .icon {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.habit-name-cell .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  margin-top: 1px;
+}
+
+.habit-name-cell .meta .percent {
+  font-weight: 700;
+  font-family: monospace;
+  letter-spacing: 0.02em;
+}
+
+.habit-name-cell .meta .count {
+  color: rgba(216, 178, 254, 0.5);
+  font-size: 10px;
+}
+
+.habit-row-progress {
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.habit-row-progress .fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.habit-row-progress .fill.emerald { background: #34d399; }
+.habit-row-progress .fill.amber { background: #f59e0b; }
+.habit-row-progress .fill.red { background: #ef4444; }
+
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 8px;
+}
+
+.actions-cell button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.actions-cell button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.actions-cell .rename-btn:hover {
+  color: var(--glow-lavender);
+}
+
+.actions-cell .delete-btn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.15);
+}
+
+/* ==========================================
+   ДОПОЛНИТЕЛЬНЫЕ СТИЛИ
+   ========================================== */
+
+/* Кнопка удаления всех привычек */
+.bg-red-500\/10 {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.border-red-500\/30 {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.hover\:border-red-500\/60:hover {
+  border-color: rgba(239, 68, 68, 0.6);
+}
+
+.hover\:bg-red-500\/20:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+.text-red-400 {
+  color: #f87171;
+}
+
+.hover\:text-red-300:hover {
+  color: #fca5a5;
+}
+
+/* Анимация для модальных окон при закрытии */
+.modal-closing {
+  animation: modalFadeOut 0.2s ease-in forwards;
+}
+
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(15px);
+  }
+}
+
+/* Ячейка во время drag-and-drop */
+.habit-name-cell[draggable="true"] {
+  cursor: grab;
+  user-select: none;
+}
+
+.habit-name-cell[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+/* Элемент, который мы тянем */
+.habit-name-cell.dragging {
+  opacity: 0.4;
+  background-color: #18113c !important;
+  border: 2px dashed var(--glow-lavender);
+}
+
+/* Ячейка-цель, над которой держим элемент */
+.habit-name-cell.drag-over {
+  border-top: 2px solid var(--glow-lavender) !important;
+  background-color: rgba(216, 178, 254, 0.1) !important;
+}
+
+/* Иконка перетаскивания */
+.drag-handle {
+  transition: opacity 0.2s ease;
+}
+
+tr[draggable="true"] {
+  cursor: grab;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+tr[draggable="true"]:hover {
+  background: rgba(125, 87, 191, 0.05);
+}
+
+tr.dragging {
+  opacity: 0.4;
+  background: rgba(125, 87, 191, 0.1);
+}
+
+tr.drag-over {
+  outline: 2px solid #8b5cf6;
+  outline-offset: -2px;
+  background: rgba(139, 92, 246, 0.12);
+  border-radius: 12px;
+}
+
+.drag-handle {
+  display: inline-block;
+  transition: opacity 0.2s ease;
+}
+
+tr:hover .drag-handle {
+  opacity: 0.6 !important;
+}
+
+/* Анимация при перетаскивании */
+.habit-row {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.habit-row.drag-over {
+  transform: scale(1.01);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+}

@@ -1,0 +1,185 @@
+<div class="space-y-8 max-w-7xl mx-auto">
+  <!-- Заголовок и управление месяцем -->
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5 p-6 glass-card rounded-2xl border border-white/10 shadow-xl bg-gradient-to-r from-purple-900/20 via-transparent to-purple-900/10">
+    <div>
+      <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight mb-1">Трекер привычек</h2>
+      <p class="text-white/60 text-sm font-medium">Bullet Journal для гипер-продуктивности</p>
+    </div>
+    
+    <!-- Управление месяцем и годом -->
+    <div class="flex items-center gap-2.5 bg-black/30 p-1.5 rounded-2xl border border-purple-500/30 backdrop-blur-md shadow-inner">
+      <button onclick="changeHabitMonth(-1)" class="action-btn w-9 h-9 rounded-xl flex items-center justify-center text-sm transition-transform active:scale-95" aria-label="Предыдущий месяц">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-xl border border-white/10">
+        <select id="habit-month-select" onchange="updateHabitsView()" class="bg-transparent text-white font-bold text-sm border-none focus:outline-none cursor-pointer pr-1">
+          <option value="0" class="bg-[#1a1438] text-white">Январь</option>
+          <option value="1" class="bg-[#1a1438] text-white">Февраль</option>
+          <option value="2" class="bg-[#1a1438] text-white">Март</option>
+          <option value="3" class="bg-[#1a1438] text-white">Апрель</option>
+          <option value="4" class="bg-[#1a1438] text-white">Май</option>
+          <option value="5" class="bg-[#1a1438] text-white">Июнь</option>
+          <option value="6" class="bg-[#1a1438] text-white">Июль</option>
+          <option value="7" class="bg-[#1a1438] text-white">Август</option>
+          <option value="8" class="bg-[#1a1438] text-white">Сентябрь</option>
+          <option value="9" class="bg-[#1a1438] text-white">Октябрь</option>
+          <option value="10" class="bg-[#1a1438] text-white">Ноябрь</option>
+          <option value="11" class="bg-[#1a1438] text-white">Декабрь</option>
+        </select>
+        <span class="text-white/20">|</span>
+        <input type="number" id="habit-year-input" onchange="updateHabitsView()" 
+               class="bg-transparent text-purple-300 font-bold text-sm w-14 border-none focus:outline-none text-center"
+               min="2020" max="2030">
+      </div>
+
+      <button onclick="changeHabitMonth(1)" class="action-btn w-9 h-9 rounded-xl flex items-center justify-center text-sm transition-transform active:scale-95" aria-label="Следующий месяц">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Предупреждение о локальном хранении данных -->
+  <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200/90 text-xs flex items-start gap-3 backdrop-blur-md">
+    <i class="fas fa-exclamation-triangle text-amber-400 text-base shrink-0 mt-0.5"></i>
+    <div class="leading-relaxed">
+      <span class="font-bold text-amber-300">Обратите внимание:</span> трекер работает только в одном браузере на одном устройстве. При очищении куки и кэша все сохраненные данные трекера тоже удаляются, поэтому перед очисткой стоит скачать базу данных.
+    </div>
+  </div>
+
+  <!-- Группа 1: Управление привычками -->
+  <div class="flex flex-wrap items-center gap-3">
+    <button onclick="addNewHabit()" class="action-btn px-5 py-3 rounded-xl text-sm font-bold flex items-center gap-2.5 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all active:scale-95">
+      <i class="fas fa-plus text-xs"></i>
+      <span>Добавить привычку</span>
+    </button>
+    <button onclick="copyHabitsFromPreviousMonth()" class="px-5 py-3 rounded-xl text-sm font-medium bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-purple-500/10 text-white/80 hover:text-white transition-all flex items-center gap-2.5 backdrop-blur-sm active:scale-95">
+      <i class="fas fa-copy text-purple-300"></i>
+      <span>Копировать из предыдущего месяца</span>
+    </button>
+  </div>
+
+  <!-- Таблица привычек -->
+  <div class="glass-card p-4 md:p-6 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
+    <div id="habits-table-container" class="overflow-x-auto scrollbar-thin scrollbar-thumb-purple-500/30"></div>
+  </div>
+
+  <!-- Группа 2: Действия с данными (под таблицей) -->
+  <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 p-5 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md shadow-lg">
+    <div class="flex flex-wrap items-center gap-3">
+      <span class="text-[11px] text-white/40 font-bold uppercase tracking-widest mr-1">Данные:</span>
+      <button onclick="exportHabitsData()" class="px-4 py-2.5 rounded-xl text-xs font-semibold bg-emerald-500/10 border border-emerald-500/30 hover:border-emerald-400 hover:bg-emerald-500/20 text-emerald-300 transition-all flex items-center gap-2 shadow-sm">
+        <i class="fas fa-download"></i>
+        <span>Скачать данные</span>
+      </button>
+      <label class="px-4 py-2.5 rounded-xl text-xs font-semibold bg-blue-500/10 border border-blue-500/30 hover:border-blue-400 hover:bg-blue-500/20 text-blue-300 transition-all flex items-center gap-2 cursor-pointer shadow-sm">
+        <i class="fas fa-upload"></i>
+        <span>Восстановить данные</span>
+        <input type="file" accept=".json" onchange="importHabitsData(event)" class="hidden">
+      </label>
+    </div>
+    
+    <div class="flex flex-wrap items-center gap-3 border-t lg:border-t-0 border-white/5 pt-3 lg:pt-0">
+      <span class="text-[11px] text-white/40 font-bold uppercase tracking-widest mr-1">Управление:</span>
+      <button onclick="resetCurrentMonth()" class="px-4 py-2.5 rounded-xl text-xs font-semibold bg-amber-500/10 border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/20 text-amber-300 transition-all flex items-center gap-2 shadow-sm">
+        <i class="fas fa-undo-alt"></i>
+        <span>Сбросить прогресс</span>
+      </button>
+      <button onclick="deleteAllHabits()" class="px-4 py-2.5 rounded-xl text-xs font-semibold bg-red-500/10 border border-red-500/30 hover:border-red-500/60 hover:bg-red-500/20 text-red-400 hover:text-red-300 transition-all flex items-center gap-2 shadow-sm">
+        <i class="fas fa-trash-alt"></i>
+        <span>Удалить все привычки</span>
+      </button>
+    </div>
+  </div>
+
+<!-- ===== Самочувствие ===== -->
+  <div class="relative my-16">
+    <!-- Верхнее свечение -->
+    <div class="absolute inset-0 flex items-center">
+      <div class="w-full h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent"></div>
+    </div>
+
+    <!-- Дополнительное размытие -->
+    <div class="absolute inset-0 flex items-center blur-md opacity-60">
+      <div class="w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+    </div>
+
+    <!-- Центральная плашка -->
+    <div class="relative flex justify-center">
+      <div class="group flex items-center gap-4 px-10 py-4 rounded-full bg-white/5 backdrop-blur-xl border border-purple-400/20 shadow-[0_0_40px_rgba(125,87,191,.25)] hover:border-purple-300/40 hover:shadow-[0_0_60px_rgba(216,178,254,.35)] transition-all duration-500">
+        <div class="w-8 h-px bg-gradient-to-r from-transparent to-purple-300"></div>
+        <i class="fas fa-heart-pulse text-lg text-rose-400 group-hover:scale-110 group-hover:text-pink-300 transition-all"></i>
+        <span class="uppercase font-bold tracking-[0.45em] text-sm bg-gradient-to-r from-purple-200 via-white to-pink-200 bg-clip-text text-transparent">
+          Самочувствие
+        </span>
+        <i class="fas fa-heart-pulse text-lg text-rose-400 group-hover:scale-110 group-hover:text-pink-300 transition-all"></i>
+        <div class="w-8 h-px bg-gradient-to-l from-transparent to-purple-300"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Раздел результатов и графиков (сетка 2 колонки) -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Тест на выгорание -->
+    <div class="glass-card p-6 rounded-2xl border border-white/10 shadow-xl flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between gap-3 mb-3">
+          <h3 class="text-xl font-bold text-white">Тест на выгорание</h3>
+          <span class="p-2 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300">
+            <i class="fas fa-notes-medical"></i>
+          </span>
+        </div>
+        <p class="text-white/70 text-sm leading-relaxed mb-6">Отслеживайте уровень стресса и усталости, чтобы предотвратить истощение.</p>
+      </div>
+
+      <div>
+        <button onclick="takeBurnoutTest()" class="action-btn w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all active:scale-95 mb-4">
+          <i class="fas fa-clipboard-list"></i>
+          <span>Пройти тест</span>
+        </button>
+
+        <div class="flex items-center justify-between text-[11px] text-white/40 border-t border-white/10 pt-3">
+          <span class="italic">* imbsr.ru</span>
+          <a href="https://www.imbsr.ru/tests/test-na-vigoranie" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="text-purple-300/70 hover:text-purple-300 transition-colors flex items-center gap-1.5 font-medium underline underline-offset-2 decoration-purple-500/30 hover:decoration-purple-300">
+            <i class="fas fa-external-link-alt text-[9px]"></i>
+            <span>Источник</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- График выгорания -->
+    <div class="glass-card p-6 rounded-2xl border border-white/10 shadow-xl lg:col-span-2 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-xl font-bold text-white">Динамика выгорания за месяц</h3>
+          <span class="text-xs text-purple-300 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Максимум: 30 баллов</span>
+        </div>
+        
+        <div class="relative bg-black/20 rounded-2xl p-4 border border-white/5 mb-6">
+          <div id="burnout-bars" class="flex items-end gap-1.5 h-44 w-full justify-between pt-4"></div>
+          <div id="burnout-dates" class="flex justify-between text-[11px] text-white/40 mt-3 pt-2 border-t border-white/5 font-mono"></div>
+        </div>
+      </div>
+      
+      <!-- Статистика -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="bg-emerald-500/10 p-3.5 rounded-xl border border-emerald-500/20 text-center backdrop-blur-sm">
+          <div class="text-2xl font-black text-emerald-400" id="burnout-low">0</div>
+          <div class="text-[11px] font-medium text-emerald-200/60 mt-0.5">Минимальная / Легкая</div>
+        </div>
+        <div class="bg-amber-500/10 p-3.5 rounded-xl border border-amber-500/20 text-center backdrop-blur-sm">
+          <div class="text-2xl font-black text-amber-400" id="burnout-medium">0</div>
+          <div class="text-[11px] font-medium text-amber-200/60 mt-0.5">Умеренная</div>
+        </div>
+        <div class="bg-red-500/10 p-3.5 rounded-xl border border-red-500/20 text-center backdrop-blur-sm">
+          <div class="text-2xl font-black text-red-400" id="burnout-high">0</div>
+          <div class="text-[11px] font-medium text-red-200/60 mt-0.5">Выраженная</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
