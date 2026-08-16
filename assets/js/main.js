@@ -1,7 +1,7 @@
 let isArchiveLoaded = false;
 
 async function showTab(tabId) {
-  const tabs = ['info', 'habits', 'marathon', 'results'];
+  const tabs = ['info', 'habits', 'marathon', 'results', 'timer'];
   tabs.forEach(t => {
     const btn = document.getElementById('btn-' + t);
     if (btn) {
@@ -47,6 +47,8 @@ async function showTab(tabId) {
       if (tabId === 'marathon') {
         isArchiveLoaded = false;
         updateMarathonTimer();
+      } else if (tabId === 'timer') {
+        initTimerTab();
       }
     }
   } catch (error) {
@@ -892,7 +894,7 @@ function showToast(message, type = 'info') {
   }, 3500);
 }
 
-// ========== БЭКАП И ВОССТАНОВЛЕНИЕ ==========
+// ========== БЭКАП И ВОССТАНОВЛЕНИЕ ПРИВЫЧЕК ==========
 
 function exportHabitsData() {
   const dataStr = JSON.stringify(habitsData, null, 2);
@@ -903,7 +905,7 @@ function exportHabitsData() {
   a.download = `habits_backup_${new Date().toISOString().split('T')[0]}.json`;
   a.click();
   URL.revokeObjectURL(url);
-  showToast('Бэкап JSON успешно скачан!', 'success');
+  showToast('Бэкап привычек успешно скачан!', 'success');
 }
 
 function importHabitsData(event) {
@@ -931,7 +933,7 @@ function importHabitsData(event) {
         renderHabitsTable();
         renderHabitsProgress();
         renderBurnoutChart();
-        showToast('Данные успешно восстановлены!', 'success');
+        showToast('Данные привычек успешно восстановлены!', 'success');
       } else {
         showToast('Неверный формат файла.', 'error');
       }
@@ -1157,6 +1159,361 @@ function renderBurnoutChart() {
   if (mediumEl) mediumEl.textContent = moderate;
   if (highEl) highEl.textContent = severe;
 }
+
+// ========== STUDY TIMER LOGIC ==========
+
+const TIMER_STORAGE_KEY = 'hard_study_timer_data';
+
+let timerData = {
+  sessions: [],
+};
+
+let timerInterval = null;
+let timerSeconds = 0;
+let isTimerRunning = false;
+let currentCalMonth = new Date().getMonth();
+let currentCalYear = new Date().getFullYear();
+
+function loadTimerData() {
+  try {
+    const stored = localStorage.getItem(TIMER_STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (parsed.sessions) timerData = parsed;
+    }
+  } catch (e) {
+    console.warn('Ошибка чтения таймера из LocalStorage', e);
+  }
+}
+
+function saveTimerData() {
+  try {
+    localStorage.setItem(TIMER_STORAGE_KEY, JSON.stringify(timerData));
+  } catch (e) {
+    console.warn('Ошибка сохранения таймера', e);
+  }
+}
+
+function initTimerTab() {
+  loadTimerData();
+  updateTimerStats();
+  renderTimerCalendar();
+}
+
+function toggleStudyTimer() {
+  const btnText = document.getElementById('timer-btn-text');
+  const btnIcon = document.getElementById('timer-btn-icon');
+
+  if (!isTimerRunning) {
+    isTimerRunning = true;
+    if (btnText) btnText.textContent = 'Пауза';
+    if (btnIcon) btnIcon.className = 'fas fa-pause';
+
+    timerInterval = setInterval(() => {
+      timerSeconds++;
+      updateTimerDisplay();
+    }, 1000);
+  } else {
+    isTimerRunning = false;
+    clearInterval(timerInterval);
+    if (btnText) btnText.textContent = 'Продолжить';
+    if (btnIcon) btnIcon.className = 'fas fa-play';
+  }
+}
+
+function resetStudyTimer() {
+  if (timerSeconds > 0 && timerSeconds >= 5) {
+    const now = new Date();
+    const dateKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    
+    const existingSessionIndex = timerData.sessions.findIndex(s => s.date === dateKey);
+    if (existingSessionIndex !== -1) {
+      timerData.sessions[existingSessionIndex].durationSeconds += timerSeconds;
+    } else {
+      timerData.sessions.push({
+        date: dateKey,
+        durationSeconds: timerSeconds
+      });
+    }
+    
+    saveTimerData();
+    showToast(`Учебная сессия сохранена! (${formatTimeHMS(timerSeconds)})`, 'success');
+  }
+
+  isTimerRunning = false;
+  clearInterval(timerInterval);
+  timerSeconds = 0;
+
+  const btnText = document.getElementById('timer-btn-text');
+  const btnIcon = document.getElementById('timer-btn-icon');
+  if (btnText) btnText.textContent = 'Старт';
+  if (btnIcon) btnIcon.className = 'fas fa-play';
+
+  updateTimerDisplay();
+  updateTimerStats();
+  renderTimerCalendar();
+}
+
+// ========== ФОРМАТИРОВАНИЕ ВРЕМЕНИ ==========
+
+function formatHMS(seconds) {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${pad(h)}:${pad(m)}:${pad(s)}`;
+}
+
+function formatTimeHMS(seconds) {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  const pad = (n) => String(n).padStart(2, '0');
+  
+  if (h > 0) {
+    return `${h}ч ${pad(m)}м ${pad(s)}с`;
+  } else if (m > 0) {
+    return `${m}м ${pad(s)}с`;
+  } else {
+    return `${s}с`;
+  }
+}
+
+function updateTimerDisplay() {
+  const display = document.getElementById('timer-display');
+  if (!display) return;
+  display.textContent = formatHMS(timerSeconds);
+}
+
+function updateTimerStats() {
+  const todayKey = `${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}-${String(new Date().getDate()).padStart(2, '0')}`;
+  const currentMonthPrefix = `${currentCalYear}-${String(currentCalMonth + 1).padStart(2, '0')}`;
+
+  let todaySec = 0;
+  let monthSec = 0;
+  let totalSec = 0;
+
+  timerData.sessions.forEach(s => {
+    totalSec += s.durationSeconds;
+    if (s.date === todayKey) todaySec += s.durationSeconds;
+    if (s.date.startsWith(currentMonthPrefix)) monthSec += s.durationSeconds;
+  });
+
+  const elToday = document.getElementById('study-time-today');
+  const elMonth = document.getElementById('study-time-month');
+  const elTotal = document.getElementById('study-time-total');
+  const elSessions = document.getElementById('study-sessions-total');
+
+  if (elToday) elToday.textContent = formatHMS(todaySec);
+  if (elMonth) elMonth.textContent = formatHMS(monthSec);
+  if (elTotal) elTotal.textContent = formatHMS(totalSec);
+  if (elSessions) elSessions.textContent = timerData.sessions.length;
+}
+
+function renderTimerCalendar() {
+  const grid = document.getElementById('timer-calendar-grid');
+  const title = document.getElementById('timer-calendar-title');
+  if (!grid) return;
+
+  const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+  if (title) title.textContent = `Календарь за ${monthNames[currentCalMonth]} ${currentCalYear}`;
+
+  const daysInMonth = new Date(currentCalYear, currentCalMonth + 1, 0).getDate();
+  const dayHeaders = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+
+  let html = dayHeaders.map(d => `<div class="font-bold text-white/40 py-1.5 text-xs">${d}</div>`).join('');
+
+  let firstDayIndex = new Date(currentCalYear, currentCalMonth, 1).getDay() - 1;
+  if (firstDayIndex === -1) firstDayIndex = 6;
+
+  for (let i = 0; i < firstDayIndex; i++) {
+    html += `<div></div>`;
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateKey = `${currentCalYear}-${String(currentCalMonth + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+    const daySec = timerData.sessions
+      .filter(s => s.date === dateKey)
+      .reduce((acc, s) => acc + s.durationSeconds, 0);
+
+    let bg = 'bg-white/5 text-white/40';
+    if (daySec > 0 && daySec < 3600) {
+      bg = 'bg-purple-500/20 text-purple-200 border border-purple-500/30';
+    } else if (daySec >= 3600 && daySec < 10800) {
+      bg = 'bg-purple-500/50 text-white font-bold border border-purple-400 shadow-lg shadow-purple-500/20';
+    } else if (daySec >= 10800) {
+      bg = 'bg-emerald-500/50 text-emerald-100 font-bold border border-emerald-400 shadow-lg shadow-emerald-500/20';
+    }
+
+    html += `
+      <div class="p-2 rounded-xl ${bg} flex flex-col items-center justify-center min-h-[56px] transition-all hover:scale-105 hover:z-10 cursor-default" title="${dateKey}: ${formatHMS(daySec)}">
+        <span class="text-sm font-bold">${d}</span>
+        ${daySec > 0 ? `<span class="text-[10px] font-mono opacity-90 mt-0.5">${formatHMS(daySec)}</span>` : ''}
+      </div>
+    `;
+  }
+
+  grid.innerHTML = html;
+}
+
+function changeTimerCalendarMonth(delta) {
+  currentCalMonth += delta;
+  if (currentCalMonth < 0) {
+    currentCalMonth = 11;
+    currentCalYear--;
+  } else if (currentCalMonth > 11) {
+    currentCalMonth = 0;
+    currentCalYear++;
+  }
+  renderTimerCalendar();
+  updateTimerStats();
+}
+
+// ========== ЭКСПОРТ И ИМПОРТ ДАННЫХ ТАЙМЕРА ==========
+
+function exportTimerData() {
+  loadTimerData();
+  
+  if (!timerData.sessions || timerData.sessions.length === 0) {
+    showToast('Нет данных для экспорта. Сначала запишите несколько сессий.', 'info');
+    return;
+  }
+  
+  try {
+    const dataStr = JSON.stringify(timerData, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute("href", url);
+    downloadAnchor.setAttribute("download", `study_timer_backup_${new Date().toISOString().slice(0,10)}.json`);
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+    URL.revokeObjectURL(url);
+    showToast(`Данные таймера успешно скачаны (${timerData.sessions.length} сессий)`, 'success');
+  } catch (err) {
+    console.error('Ошибка экспорта:', err);
+    showToast('Ошибка при экспорте данных', 'error');
+  }
+}
+
+function importTimerData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const imported = JSON.parse(e.target.result);
+      if (imported && Array.isArray(imported.sessions)) {
+        if (timerData.sessions.length > 0) {
+          if (!confirm(`Восстановить данные из файла? Текущие данные (${timerData.sessions.length} сессий) будут заменены.`)) {
+            return;
+          }
+        }
+        timerData = imported;
+        saveTimerData();
+        updateTimerStats();
+        renderTimerCalendar();
+        showToast(`Данные таймера успешно восстановлены! (${timerData.sessions.length} сессий)`, 'success');
+      } else {
+        showToast('Неверный формат файла JSON', 'error');
+      }
+    } catch (err) {
+      showToast('Ошибка чтения файла: ' + err.message, 'error');
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+// ========== УДАЛЕНИЕ ДАННЫХ ТАЙМЕРА ==========
+
+function deleteTodayTimerData() {
+  const todayKey = `${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}-${String(new Date().getDate()).padStart(2, '0')}`;
+  
+  const todaySessionIndex = timerData.sessions.findIndex(s => s.date === todayKey);
+  if (todaySessionIndex === -1) {
+    showToast('Нет данных за сегодня для удаления', 'info');
+    return;
+  }
+  
+  const todaySeconds = timerData.sessions[todaySessionIndex].durationSeconds;
+  
+  if (!confirm(`Удалить все записи за сегодня (${formatHMS(todaySeconds)})? Это действие нельзя отменить.`)) {
+    return;
+  }
+  
+  timerData.sessions.splice(todaySessionIndex, 1);
+  saveTimerData();
+  updateTimerStats();
+  renderTimerCalendar();
+  showToast(`Данные за сегодня (${formatHMS(todaySeconds)}) удалены`, 'success');
+}
+
+function deleteMonthTimerData() {
+  const currentMonthPrefix = `${currentCalYear}-${String(currentCalMonth + 1).padStart(2, '0')}`;
+  
+  const monthSessions = timerData.sessions.filter(s => s.date.startsWith(currentMonthPrefix));
+  
+  if (monthSessions.length === 0) {
+    showToast('Нет данных за текущий месяц для удаления', 'info');
+    return;
+  }
+  
+  const monthSeconds = monthSessions.reduce((acc, s) => acc + s.durationSeconds, 0);
+  const sessionCount = monthSessions.length;
+  
+  if (!confirm(`Удалить все записи за ${MONTH_NAMES[currentCalMonth]} ${currentCalYear} (${formatHMS(monthSeconds)}, ${sessionCount} сессий)? Это действие нельзя отменить.`)) {
+    return;
+  }
+  
+  timerData.sessions = timerData.sessions.filter(s => !s.date.startsWith(currentMonthPrefix));
+  saveTimerData();
+  updateTimerStats();
+  renderTimerCalendar();
+  showToast(`Данные за ${MONTH_NAMES[currentCalMonth]} ${currentCalYear} (${formatHMS(monthSeconds)}) удалены`, 'success');
+}
+
+function deleteAllTimerData() {
+  if (timerData.sessions.length === 0) {
+    showToast('Нет данных для удаления', 'info');
+    return;
+  }
+  
+  const totalSeconds = timerData.sessions.reduce((acc, s) => acc + s.durationSeconds, 0);
+  const sessionCount = timerData.sessions.length;
+  
+  if (!confirm(`Удалить ВСЕ данные таймера (${formatHMS(totalSeconds)}, ${sessionCount} сессий)? Это действие нельзя отменить.`)) {
+    return;
+  }
+  
+  timerData.sessions = [];
+  saveTimerData();
+  updateTimerStats();
+  renderTimerCalendar();
+  showToast('Все данные таймера удалены', 'success');
+}
+
+// ========== АВТОСОХРАНЕНИЕ ПРИ ЗАКРЫТИИ ВКЛАДКИ ==========
+
+window.addEventListener('beforeunload', function() {
+  if (isTimerRunning && timerSeconds > 5) {
+    const now = new Date();
+    const dateKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    
+    const existingSessionIndex = timerData.sessions.findIndex(s => s.date === dateKey);
+    if (existingSessionIndex !== -1) {
+      timerData.sessions[existingSessionIndex].durationSeconds += timerSeconds;
+    } else {
+      timerData.sessions.push({
+        date: dateKey,
+        durationSeconds: timerSeconds
+      });
+    }
+    saveTimerData();
+  }
+});
 
 // ========== ИНИЦИАЛИЗАЦИЯ ==========
 
