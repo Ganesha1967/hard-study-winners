@@ -1,0 +1,5 @@
+body {
+  background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}

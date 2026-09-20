@@ -1,0 +1,25 @@
+/* Фолбэки для Tailwind-классов (на случай отсутствия JIT) */
+
+.bg-red-500\/10 {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.border-red-500\/30 {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.hover\:border-red-500\/60:hover {
+  border-color: rgba(239, 68, 68, 0.6);
+}
+
+.hover\:bg-red-500\/20:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+.text-red-400 {
+  color: #f87171;
+}
+
+.hover\:text-red-300:hover {
+  color: #fca5a5;
+}

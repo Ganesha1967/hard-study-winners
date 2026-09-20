@@ -1,0 +1,20 @@
+.action-btn {
+  background: linear-gradient(135deg, var(--accent-purple), var(--glow-lavender));
+  color: var(--bg-deep);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px rgba(125, 87, 191, 0.4);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(216, 178, 254, 0.5);
+  filter: brightness(1.1);
+}
+
+.action-btn:focus-visible {
+  outline: 2px solid var(--glow-lavender);
+  outline-offset: 2px;
+}

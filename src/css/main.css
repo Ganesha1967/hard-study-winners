@@ -1,0 +1,32 @@
+/* ==========================================================
+   Hard Study Winners — Main CSS Entry
+   Порядок: core → layout → components → features → utilities
+   ========================================================== */
+
+/* 1. CORE — переменные, ресет, типографика, скроллбар */
+@import url('./core/variables.css');
+@import url('./core/reset.css');
+@import url('./core/typography.css');
+@import url('./core/scrollbar.css');
+
+/* 2. LAYOUT — каркас страницы */
+@import url('./layout/body.css');
+@import url('./layout/containers.css');
+
+/* 3. COMPONENTS — переиспользуемые UI-блоки */
+@import url('./components/buttons.css');
+@import url('./components/tabs.css');
+@import url('./components/cards.css');
+@import url('./components/modal.css');
+@import url('./components/toast.css');
+
+/* 4. FEATURES — стили конкретных вкладок */
+@import url('./features/habits-table.css');
+@import url('./features/habits-controls.css');
+@import url('./features/burnout.css');
+@import url('./features/timer.css');
+
+/* 5. UTILITIES — хелперы, анимации, фолбэки */
+@import url('./utilities/animations.css');
+@import url('./utilities/colors.css');
+@import url('./utilities/tailwind-fallbacks.css');

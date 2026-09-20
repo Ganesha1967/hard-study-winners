@@ -1,56 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hard Study Winners | Пятилетка за 30 дней</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./src/css/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hard Study Winners | Пятилетка за 30 дней</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-
-<body class="min-h-screen">
-  <nav class="sticky top-0 z-50 glass-card mx-2 md:mx-4 mt-4 mb-8 md:mb-12 px-4 md:px-8 py-4 md:py-5" aria-label="Главная навигация">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-      <div class="flex items-center gap-3 text-white">
-        <div class="w-9 h-9 md:w-11 md:h-11 action-btn rounded-xl md:rounded-2xl flex items-center justify-center font-bold text-xl md:text-2xl">
-          <i class="fas fa-meteor"></i>
+  <body class="min-h-screen">
+    <nav
+      class="sticky top-0 z-50 glass-card mx-2 md:mx-4 mt-4 mb-8 md:mb-12 px-4 md:px-8 py-4 md:py-5"
+      aria-label="Главная навигация"
+    >
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-3 text-white">
+          <div
+            class="w-9 h-9 md:w-11 md:h-11 action-btn rounded-xl md:rounded-2xl flex items-center justify-center font-bold text-xl md:text-2xl"
+          >
+            <i class="fas fa-meteor"></i>
+          </div>
+          <span class="font-unbounded font-bold text-sm md:text-lg tracking-tight uppercase"
+            >HARD STUDY WINNERS</span
+          >
         </div>
-        <span class="font-unbounded font-bold text-sm md:text-lg tracking-tight uppercase">HARD STUDY WINNERS</span>
-      </div>
-      <div class="flex gap-4 md:gap-10 text-[9px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em]">
-        <button onclick="showTab('info')" id="btn-info" class="tab-active py-1 text-white cursor-pointer" role="tab" aria-selected="true">Группа</button>
-        <button onclick="showTab('habits')" id="btn-habits" class="py-1 text-white/50 hover:text-white transition-all cursor-pointer" role="tab" aria-selected="false">Трекер привычек</button>
-        <button onclick="showTab('timer')" id="btn-timer" class="py-1 text-white/50 hover:text-white transition-all cursor-pointer" role="tab" aria-selected="false"></i>Таймер</button>
-        <button onclick="showTab('marathon')" id="btn-marathon" class="py-1 text-white/50 hover:text-white transition-all cursor-pointer" role="tab" aria-selected="false">Марафоны</button>
-        <button onclick="showTab('results')" id="btn-results" class="py-1 text-white/50 hover:text-white transition-all cursor-pointer" role="tab" aria-selected="false">Зал славы</button>
-      </div>
-    </div>
-  </nav>
-
-  <main class="max-w-6xl mx-auto p-4">
-    <div id="content-area">
-      </div>
-  </main>
-
-  <footer class="mt-24 md:mt-40 py-16 md:py-24 px-6 glass-card rounded-none border-none text-center">
-    <div class="max-w-4xl mx-auto space-y-8 md:space-y-12">
-      <div class="inline-block bg-white/5 border border-white/10 rounded-[24px] md:rounded-[32px] p-6 md:p-8 max-w-2xl transition-all hover:border-glow-lavender/30 group">
-        <div class="flex flex-col items-center gap-4">
-          <i class="fab fa-github text-2xl md:text-3xl text-white/50 group-hover:text-white"></i>
-          <p class="text-white/60 text-xs md:text-sm leading-relaxed">
-            Хотите помочь? Делайте <b>PR</b> в наш репозиторий. Пожалуйста, пишите <span class="text-glow-lavender">подробно</span> об изменениях!
-          </p>
-          <a href="https://github.com/Ganesha1967/hard-study-winners" target="_blank" class="text-[10px] font-bold uppercase tracking-widest text-glow-lavender border-b border-glow-lavender/20 pb-1 hover:border-glow-lavender transition-all">
-            github.com/Ganesha1967/hard-study-winners
-          </a>
+        <div
+          class="flex gap-4 md:gap-10 text-[9px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em]"
+        >
+          <button
+            onclick="showTab('info')"
+            id="btn-info"
+            class="tab-active py-1 text-white cursor-pointer"
+            role="tab"
+            aria-selected="true"
+          >
+            Группа
+          </button>
+          <button
+            onclick="showTab('habits')"
+            id="btn-habits"
+            class="py-1 text-white/50 hover:text-white transition-all cursor-pointer"
+            role="tab"
+            aria-selected="false"
+          >
+            Трекер привычек
+          </button>
+          <button
+            onclick="showTab('timer')"
+            id="btn-timer"
+            class="py-1 text-white/50 hover:text-white transition-all cursor-pointer"
+            role="tab"
+            aria-selected="false"
+          >
+            Таймер
+          </button>
+          <button
+            onclick="showTab('marathon')"
+            id="btn-marathon"
+            class="py-1 text-white/50 hover:text-white transition-all cursor-pointer"
+            role="tab"
+            aria-selected="false"
+          >
+            Марафоны
+          </button>
+          <button
+            onclick="showTab('results')"
+            id="btn-results"
+            class="py-1 text-white/50 hover:text-white transition-all cursor-pointer"
+            role="tab"
+            aria-selected="false"
+          >
+            Зал славы
+          </button>
         </div>
       </div>
-      <p class="font-unbounded text-[8px] md:text-[10px] tracking-[0.6em] md:tracking-[1em] text-white/20 uppercase">Hard Study Winners</p>
-    </div>
-  </footer>
+    </nav>
 
-  <script src="./assets/js/main.js"></script>
-</body>
+    <main class="max-w-6xl mx-auto p-4">
+      <div id="content-area"></div>
+    </main>
+
+    <div
+      id="toast-container"
+      class="fixed bottom-4 right-4 z-[200] space-y-2 pointer-events-none"
+    ></div>
+
+    <footer
+      class="mt-24 md:mt-40 py-16 md:py-24 px-6 glass-card rounded-none border-none text-center"
+    >
+      <div class="max-w-4xl mx-auto space-y-8 md:space-y-12">
+        <div
+          class="inline-block bg-white/5 border border-white/10 rounded-[24px] md:rounded-[32px] p-6 md:p-8 max-w-2xl transition-all hover:border-glow-lavender/30 group"
+        >
+          <div class="flex flex-col items-center gap-4">
+            <i class="fab fa-github text-2xl md:text-3xl text-white/50 group-hover:text-white"></i>
+            <p class="text-white/60 text-xs md:text-sm leading-relaxed">
+              Хотите помочь? Делайте <b>PR</b> в наш репозиторий. Пожалуйста, пишите
+              <span class="text-glow-lavender">подробно</span> об изменениях!
+            </p>
+            <a
+              href="https://github.com/Ganesha1967/hard-study-winners"
+              target="_blank"
+              class="text-[10px] font-bold uppercase tracking-widest text-glow-lavender border-b border-glow-lavender/20 pb-1 hover:border-glow-lavender transition-all"
+            >
+              github.com/Ganesha1967/hard-study-winners
+            </a>
+          </div>
+        </div>
+        <p
+          class="font-unbounded text-[8px] md:text-[10px] tracking-[0.6em] md:tracking-[1em] text-white/20 uppercase"
+        >
+          Hard Study Winners
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="./src/js/main.js"></script>
+  </body>
 </html>

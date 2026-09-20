@@ -1,0 +1,7 @@
+#burnout-bars > div {
+  transition: all 0.3s ease;
+}
+
+#burnout-bars > div:hover {
+  transform: scaleY(1.05);
+}
