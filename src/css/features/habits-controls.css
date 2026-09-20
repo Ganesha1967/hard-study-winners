@@ -1,0 +1,160 @@
+/* Кнопки дней */
+.habit-day-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 12px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.habit-day-btn:hover:not(:disabled) {
+  transform: scale(1.12);
+  border-color: rgba(125, 87, 191, 0.4);
+  background: rgba(125, 87, 191, 0.15);
+}
+
+.habit-day-btn:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.habit-day-btn.completed {
+  background: rgba(52, 211, 153, 0.25);
+  border-color: rgba(52, 211, 153, 0.5);
+  color: #34d399;
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.15);
+}
+
+.habit-day-btn.completed:hover {
+  background: rgba(52, 211, 153, 0.35);
+}
+
+.habit-day-btn.today {
+  outline: 2px solid rgba(125, 87, 191, 0.5);
+  background: rgba(125, 87, 191, 0.15);
+}
+
+.habit-day-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.habit-day-btn.weekend {
+  background: rgba(255, 0, 80, 0.04);
+}
+
+/* Кнопки действий (rename/delete) */
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 8px;
+}
+
+.actions-cell button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.actions-cell button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.actions-cell .rename-btn:hover {
+  color: var(--glow-lavender);
+}
+
+.actions-cell .delete-btn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.15);
+}
+
+/* Прогресс-бары в карточках */
+.habit-progress-bar {
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   DRAG & DROP
+   ========================================== */
+
+tr[draggable='true'] {
+  cursor: grab;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+tr[draggable='true']:hover {
+  background: rgba(125, 87, 191, 0.05);
+}
+
+tr.dragging {
+  opacity: 0.4;
+  background: rgba(125, 87, 191, 0.1);
+}
+
+tr.drag-over {
+  outline: 2px solid #8b5cf6;
+  outline-offset: -2px;
+  background: rgba(139, 92, 246, 0.12);
+  border-radius: 12px;
+}
+
+.drag-handle {
+  display: inline-block;
+  transition: opacity 0.2s ease;
+}
+
+tr:hover .drag-handle {
+  opacity: 0.6 !important;
+}
+
+.habit-row {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.habit-row.drag-over {
+  transform: scale(1.01);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+}
+
+/* Старые селекторы .habit-name-cell[draggable] — оставлены для совместимости */
+.habit-name-cell[draggable='true'] {
+  cursor: grab;
+  user-select: none;
+}
+
+.habit-name-cell[draggable='true']:active {
+  cursor: grabbing;
+}
+
+.habit-name-cell.dragging {
+  opacity: 0.4;
+  background-color: #18113c !important;
+  border: 2px dashed var(--glow-lavender);
+}
+
+.habit-name-cell.drag-over {
+  border-top: 2px solid var(--glow-lavender) !important;
+  background-color: rgba(216, 178, 254, 0.1) !important;
+}

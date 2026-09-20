@@ -1,0 +1,22 @@
+# Ignore artifacts:
+build
+coverage
+dist
+node_modules
+
+# Lock-файлы (Prettier их не должен форматировать)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Git и хуки (shell-скрипты)
+.git
+.husky
+
+# Минифицированные файлы
+*.min.js
+*.min.css
+
+# Бэкапы данных пользователя (экспорт из трекера)
+habits_backup_*.json
+study_timer_backup_*.json

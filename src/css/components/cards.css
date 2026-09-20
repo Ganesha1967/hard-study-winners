@@ -1,0 +1,14 @@
+.topic-card {
+  text-decoration: none;
+  display: block;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: rgba(32, 23, 77, 0.4);
+  color: inherit;
+}
+
+.topic-card:hover {
+  transform: scale(1.03);
+  border-color: var(--glow-lavender);
+  background: rgba(125, 87, 191, 0.2);
+  box-shadow: 0 0 30px rgba(125, 87, 191, 0.3);
+}

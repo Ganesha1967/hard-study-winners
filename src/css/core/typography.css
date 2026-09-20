@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-soft);
+}
+
+h1,
+h2,
+h3,
+.font-unbounded {
+  font-family: 'Unbounded', sans-serif;
+}

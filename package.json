@@ -1,0 +1,33 @@
+{
+  "name": "hard-study-winners",
+  "version": "1.0.0",
+  "description": "Web portal for the Hard Study Winners community",
+  "private": true,
+  "scripts": {
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ganesha1967/hard-study-winners.git"
+  },
+  "keywords": [
+    "study",
+    "habits",
+    "tracker",
+    "community"
+  ],
+  "author": "Ganesha1967",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ganesha1967/hard-study-winners/issues"
+  },
+  "homepage": "https://github.com/Ganesha1967/hard-study-winners#readme",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^17.5.1",
+    "prettier": "3.9.8"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}

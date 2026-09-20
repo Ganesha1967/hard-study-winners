@@ -1,0 +1,10 @@
+/* Toast-уведомления стилизуются через Tailwind-классы в JS.
+   Здесь — только контейнер и опциональные кастомные стили. */
+
+#toast-container {
+  pointer-events: none;
+}
+
+#toast-container > * {
+  pointer-events: auto;
+}

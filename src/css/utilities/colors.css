@@ -1,0 +1,11 @@
+.text-glow-lavender {
+  color: var(--glow-lavender);
+}
+
+.bg-glow-lavender\/10 {
+  background-color: rgba(216, 178, 254, 0.1);
+}
+
+.border-glow-lavender\/20 {
+  border-color: rgba(216, 178, 254, 0.2);
+}
