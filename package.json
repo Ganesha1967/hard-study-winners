@@ -4,7 +4,9 @@
   "description": "Web portal for the Hard Study Winners community",
   "private": true,
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "prettier": "prettier --check --ignore-unknown .",
+    "prettier:w": "prettier --write --ignore-unknown ."
   },
   "repository": {
     "type": "git",
