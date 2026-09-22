@@ -11,7 +11,7 @@ export async function openArchiveMarathon(marathonId) {
   detailView.classList.remove('hidden');
 
   try {
-    const response = await fetch(`./src/components/archive/${marathonId}.html`);
+    const response = await fetch(`./components/archive/${marathonId}.html`);
     if (!response.ok) throw new Error(`Марафон не найден: ${response.status}`);
     dataContainer.innerHTML = await response.text();
   } catch (error) {

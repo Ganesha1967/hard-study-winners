@@ -8,7 +8,7 @@ let messages = {};
 
 export async function loadLocale(lang = 'rus') {
   try {
-    const res = await fetch(`./src/locales/${lang}.json`);
+    const res = await fetch(`./locales/${lang}.json`);
     if (!res.ok) throw new Error(res.status);
     messages = await res.json();
     currentLang = lang;

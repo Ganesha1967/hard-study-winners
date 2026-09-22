@@ -35,7 +35,7 @@ export async function showTab(tabId) {
     let html;
 
     if (tabId === 'habits') {
-      const response = await fetch(`./src/components/habits.html`);
+      const response = await fetch(`./components/habits.html`);
       if (!response.ok) throw new Error(`Ошибка загрузки: ${response.status}`);
       html = await response.text();
       contentArea.innerHTML = html;
@@ -52,7 +52,7 @@ export async function showTab(tabId) {
       renderHabitsProgress();
       renderBurnoutChart();
     } else {
-      const response = await fetch(`./src/components/${tabId}.html`);
+      const response = await fetch(`./components/${tabId}.html`);
       if (!response.ok) throw new Error(`Ошибка загрузки: ${response.status}`);
       html = await response.text();
       contentArea.innerHTML = html;
@@ -104,7 +104,7 @@ export function showMarathonSubTab(subTabId) {
     closeArchiveMarathon();
 
     if (!isArchiveLoaded) {
-      fetch('./src/components/archive.html')
+      fetch('./components/archive.html')
         .then((response) => {
           if (!response.ok) throw new Error('Ошибка загрузки файла архива');
           return response.text();
