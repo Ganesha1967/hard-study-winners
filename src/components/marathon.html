@@ -37,9 +37,9 @@
         </p>
       </div>
       <span
-        class="px-3 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-300 font-mono text-[10px] uppercase rounded-full tracking-wider"
+        class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 font-mono text-[10px] uppercase rounded-full tracking-wider"
       >
-        Сезон знаний
+        Марафон завершён
       </span>
     </div>
 
@@ -224,6 +224,59 @@
       </details>
     </div>
 
+    <!-- ИТОГОВАЯ СТАТИСТИКА МАРАФОНА -->
+    <div
+      class="glass-card p-6 md:p-8 border border-purple-500/30 bg-gradient-to-r from-purple-950/10 to-transparent rounded-2xl"
+    >
+      <h3
+        class="text-lg md:text-xl font-bold text-purple-300 mb-4 uppercase flex items-center gap-3"
+      >
+        <i class="fas fa-trophy"></i> Итоговая статистика марафона
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 text-xs md:text-sm">
+        <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+          <p class="text-white/50 text-[10px] uppercase tracking-wider">Всего дней</p>
+          <p class="text-white font-bold text-xl">30</p>
+        </div>
+        <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+          <p class="text-white/50 text-[10px] uppercase tracking-wider">Участников</p>
+          <p class="text-white font-bold text-xl">26</p>
+        </div>
+        <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+          <p class="text-white/50 text-[10px] uppercase tracking-wider">Выживаемость</p>
+          <p class="text-emerald-400 font-bold text-xl">34.6%</p>
+        </div>
+        <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+          <p class="text-white/50 text-[10px] uppercase tracking-wider">Всего отчётов</p>
+          <p class="text-purple-400 font-bold text-xl">397</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 text-xs md:text-sm mt-3">
+        <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+          <p class="text-white/50 text-[10px] uppercase tracking-wider">Активных</p>
+          <p class="text-emerald-400 font-bold text-xl">9</p>
+        </div>
+        <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+          <p class="text-white/50 text-[10px] uppercase tracking-wider">Выбывших</p>
+          <p class="text-red-400 font-bold text-xl">17</p>
+        </div>
+        <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+          <p class="text-white/50 text-[10px] uppercase tracking-wider">Пик активности</p>
+          <p class="text-amber-400 font-bold text-xl">19</p>
+        </div>
+        <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+          <p class="text-white/50 text-[10px] uppercase tracking-wider">Потери</p>
+          <p class="text-red-400 font-bold text-xl">65.4%</p>
+        </div>
+      </div>
+      <div class="mt-4 pt-4 border-t border-white/5">
+        <p class="text-white/80 text-xs md:text-sm">
+          💀 Критический возраст:
+          <span class="text-red-400 font-bold">11 день участия</span> (выбыло 3 человека)
+        </p>
+      </div>
+    </div>
+
     <!-- Статистика -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mt-6">
       <!-- Левая колонка -->
@@ -240,69 +293,69 @@
             </h3>
             <div class="space-y-3 md:space-y-4 text-xs md:text-sm">
               <p class="text-white/80">
-                ├ Всего дней: <span class="text-white font-bold">21</span>
+                ├ Всего дней: <span class="text-white font-bold">30</span>
               </p>
               <p class="text-white/80">
                 ├ Участников: <span class="text-white font-bold">26</span>
               </p>
               <p class="text-white/80">
-                ├ Активных: <span class="text-green-400 font-bold">13 (50%)</span>
+                ├ Активных: <span class="text-green-400 font-bold">9 (34.6%)</span>
               </p>
               <p class="text-white/80">
-                ├ Выбывших: <span class="text-red-400 font-bold">13</span>
+                ├ Выбывших: <span class="text-red-400 font-bold">17</span>
               </p>
               <p class="text-white/80">
-                ├ Всего отчётов: <span class="text-[#D8B2FE] font-bold">308</span>
+                ├ Всего отчётов: <span class="text-[#D8B2FE] font-bold">397</span>
               </p>
               <p class="text-white/80">
-                └ Пиковая активность: <span class="text-amber-400 font-bold">18 отч/день</span>
+                └ Пиковая активность: <span class="text-amber-400 font-bold">19 отч/день</span>
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Прогресс за неделю -->
+        <!-- Глобальная статистика по дням недели -->
         <div class="glass-card p-5 md:p-8">
           <h3
             class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 uppercase flex items-center gap-3"
           >
-            <i class="fas fa-calendar-week text-[#D8B2FE]"></i> Прогресс за неделю
+            <i class="fas fa-calendar-week text-[#D8B2FE]"></i> Глобальная динамика
           </h3>
           <div class="space-y-2 md:space-y-3 font-mono text-[10px] md:text-xs">
             <div
               class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5"
             >
-              <span>ПН: 11 отчётов</span><span class="text-green-400">✅</span>
+              <span>пн: 53</span><span class="text-green-400">✅</span>
             </div>
             <div
               class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5"
             >
-              <span>ВТ: 0 отчётов</span><span class="text-white/40">-</span>
+              <span>вт: 64</span><span class="text-green-400">✅</span>
             </div>
             <div
               class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5"
             >
-              <span>СР: 0 отчётов</span><span class="text-white/40">-</span>
+              <span>ср: 63</span><span class="text-green-400">✅</span>
             </div>
             <div
               class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5"
             >
-              <span>ЧТ: 0 отчётов</span><span class="text-white/40">-</span>
+              <span>чт: 56</span><span class="text-green-400">✅</span>
             </div>
             <div
               class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5"
             >
-              <span>ПТ: 0 отчётов</span><span class="text-white/40">-</span>
+              <span>пт: 56</span><span class="text-green-400">✅</span>
             </div>
             <div
               class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5"
             >
-              <span>СБ: 0 отчётов</span><span class="text-white/40">-</span>
+              <span>сб: 52</span><span class="text-green-400">✅</span>
             </div>
             <div
               class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5"
             >
-              <span>ВС: 0 отчётов</span><span class="text-white/40">-</span>
+              <span>вс: 53</span><span class="text-green-400">✅</span>
             </div>
           </div>
         </div>
@@ -337,109 +390,77 @@
                   <td class="py-3 font-bold text-purple-300 pl-2">🔥</td>
                   <td class="font-bold text-white">#amphibian</td>
                   <td class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300 font-bold">21</td>
+                  <td class="text-center text-emerald-300 font-bold">30</td>
                   <td class="text-center text-white/40">0</td>
-                  <td class="text-right pr-2 font-bold text-purple-300">21</td>
+                  <td class="text-right pr-2 font-bold text-purple-300">30</td>
                 </tr>
                 <tr class="bg-purple-500/15 border-l-2 border-purple-400">
                   <td class="py-3 font-bold text-purple-300 pl-2">🔥</td>
                   <td class="font-bold text-white">#hikonora</td>
                   <td class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300 font-bold">21</td>
+                  <td class="text-center text-emerald-300 font-bold">30</td>
                   <td class="text-center text-white/40">0</td>
-                  <td class="text-right pr-2 font-bold text-purple-300">21</td>
+                  <td class="text-right pr-2 font-bold text-purple-300">30</td>
                 </tr>
                 <tr class="bg-purple-500/15 border-l-2 border-purple-400">
                   <td class="py-3 font-bold text-purple-300 pl-2">🔥</td>
                   <td class="font-bold text-white">#katiee</td>
                   <td class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300 font-bold">21</td>
+                  <td class="text-center text-emerald-300 font-bold">30</td>
                   <td class="text-center text-white/40">0</td>
-                  <td class="text-right pr-2 font-bold text-purple-300">21</td>
-                </tr>
-                <tr class="bg-purple-500/15 border-l-2 border-purple-400">
-                  <td class="py-3 font-bold text-purple-300 pl-2">🔥</td>
-                  <td class="font-bold text-white">#zaellaporro</td>
-                  <td class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300 font-bold">21</td>
-                  <td class="text-center text-white/40">0</td>
-                  <td class="text-right pr-2 font-bold text-purple-300">21</td>
+                  <td class="text-right pr-2 font-bold text-purple-300">30</td>
                 </tr>
                 <tr class="bg-purple-500/15 border-l-2 border-purple-400">
                   <td class="py-3 font-bold text-purple-300 pl-2">🔥</td>
                   <td class="font-bold text-white">#cppyaka</td>
                   <td class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300">20</td>
-                  <td class="text-center text-cyan-400">🏝x1</td>
-                  <td class="text-right pr-2">18</td>
+                  <td class="text-center text-emerald-300 font-bold">28</td>
+                  <td class="text-center text-cyan-400">🏝x2</td>
+                  <td class="text-right pr-2 font-bold text-purple-300">7</td>
+                </tr>
+                <tr class="bg-purple-500/15 border-l-2 border-purple-400">
+                  <td class="py-3 font-bold text-purple-300 pl-2">🔥</td>
+                  <td class="font-bold text-white">#styli197</td>
+                  <td class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</td>
+                  <td class="text-center text-emerald-300 font-bold">27</td>
+                  <td class="text-center text-cyan-400">🏝x2</td>
+                  <td class="text-right pr-2 font-bold text-purple-300">9</td>
                 </tr>
                 <tr>
                   <td class="py-3 opacity-40 pl-2">6</td>
-                  <td class="font-bold text-white">#веня</td>
-                  <td class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300">19</td>
+                  <td class="font-bold text-white">#purple_penguin</td>
+                  <td class="text-[#D8B2FE]">❤️❤️❤️❤️</td>
+                  <td class="text-center text-emerald-300">28</td>
                   <td class="text-center text-white/40">0</td>
-                  <td class="text-right pr-2">14</td>
+                  <td class="text-right pr-2">1</td>
                 </tr>
                 <tr>
                   <td class="py-3 opacity-40 pl-2">7</td>
-                  <td class="font-bold text-white">#styli197</td>
-                  <td class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300">18</td>
-                  <td class="text-center text-cyan-400">🏝x2</td>
+                  <td class="font-bold text-white">#zaellaporro</td>
+                  <td class="text-[#D8B2FE]">❤️❤️❤️</td>
+                  <td class="text-center text-emerald-300">28</td>
+                  <td class="text-center text-white/40">0</td>
                   <td class="text-right pr-2">0</td>
                 </tr>
                 <tr>
                   <td class="py-3 opacity-40 pl-2">8</td>
-                  <td class="font-bold text-white">#merlin</td>
-                  <td class="text-[#D8B2FE]">❤️❤️❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300">10</td>
-                  <td class="text-center text-cyan-400">🏝x2</td>
-                  <td class="text-right pr-2">1</td>
-                </tr>
-                <tr>
-                  <td class="py-3 opacity-40 pl-2">9</td>
-                  <td class="font-bold text-white">#purple_penguin</td>
-                  <td class="text-[#D8B2FE]">❤️❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300">20</td>
-                  <td class="text-center text-white/40">0</td>
+                  <td class="font-bold text-white">#torchbearer</td>
+                  <td class="text-[#D8B2FE]">❤️❤️❤️</td>
+                  <td class="text-center text-emerald-300">26</td>
+                  <td class="text-center text-cyan-400">🏝x1</td>
                   <td class="text-right pr-2">3</td>
                 </tr>
                 <tr>
-                  <td class="py-3 opacity-40 pl-2">10</td>
-                  <td class="font-bold text-white">#torchbearer</td>
-                  <td class="text-[#D8B2FE]">❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300">18</td>
-                  <td class="text-center text-cyan-400">🏝x1</td>
-                  <td class="text-right pr-2">8</td>
-                </tr>
-                <tr>
-                  <td class="py-3 opacity-40 pl-2">11</td>
+                  <td class="py-3 opacity-40 pl-2">9</td>
                   <td class="font-bold text-white">#rescuid</td>
-                  <td class="text-[#D8B2FE]">❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300">17</td>
-                  <td class="text-center text-cyan-400">🏝x1</td>
-                  <td class="text-right pr-2">15</td>
-                </tr>
-                <tr>
-                  <td class="py-3 opacity-40 pl-2">12</td>
-                  <td class="font-bold text-white">#nevedoma</td>
-                  <td class="text-[#D8B2FE]">❤️❤️❤️</td>
-                  <td class="text-center text-emerald-300">4</td>
-                  <td class="text-center text-cyan-400">🏝x2</td>
-                  <td class="text-right pr-2">0</td>
-                </tr>
-                <tr>
-                  <td class="py-3 opacity-40 pl-2">13</td>
-                  <td class="font-bold text-white">#savestars</td>
                   <td class="text-[#D8B2FE]">❤️❤️</td>
-                  <td class="text-center text-emerald-300">17</td>
-                  <td class="text-center text-white/40">0</td>
-                  <td class="text-right pr-2">4</td>
+                  <td class="text-center text-emerald-300">25</td>
+                  <td class="text-center text-cyan-400">🏝x1</td>
+                  <td class="text-right pr-2">5</td>
                 </tr>
                 <!-- Выбывшие -->
                 <tr class="opacity-50 bg-red-950/10">
-                  <td class="py-3 pl-2 text-red-400">14</td>
+                  <td class="py-3 pl-2 text-red-400">10</td>
                   <td class="font-bold text-red-400">#divanka (выбыл)</td>
                   <td class="text-white/20">❌</td>
                   <td class="text-center">-</td>
@@ -447,8 +468,40 @@
                   <td class="text-right">-</td>
                 </tr>
                 <tr class="opacity-50 bg-red-950/10">
+                  <td class="py-3 pl-2 text-red-400">11</td>
+                  <td class="font-bold text-red-400">#ratigan (выбыл)</td>
+                  <td class="text-white/20">❌</td>
+                  <td class="text-center">-</td>
+                  <td class="text-center">-</td>
+                  <td class="text-right">-</td>
+                </tr>
+                <tr class="opacity-50 bg-red-950/10">
+                  <td class="py-3 pl-2 text-red-400">12</td>
+                  <td class="font-bold text-red-400">#mannaay (выбыл)</td>
+                  <td class="text-white/20">❌</td>
+                  <td class="text-center">-</td>
+                  <td class="text-center">-</td>
+                  <td class="text-right">-</td>
+                </tr>
+                <tr class="opacity-50 bg-red-950/10">
+                  <td class="py-3 pl-2 text-red-400">13</td>
+                  <td class="font-bold text-red-400">#savestars (выбыл)</td>
+                  <td class="text-white/20">❌</td>
+                  <td class="text-center">-</td>
+                  <td class="text-center">-</td>
+                  <td class="text-right">-</td>
+                </tr>
+                <tr class="opacity-50 bg-red-950/10">
+                  <td class="py-3 pl-2 text-red-400">14</td>
+                  <td class="font-bold text-red-400">#vas (выбыл)</td>
+                  <td class="text-white/20">❌</td>
+                  <td class="text-center">-</td>
+                  <td class="text-center">-</td>
+                  <td class="text-right">-</td>
+                </tr>
+                <tr class="opacity-50 bg-red-950/10">
                   <td class="py-3 pl-2 text-red-400">15</td>
-                  <td class="font-bold text-red-400">#xwgrxqrx (выбыл)</td>
+                  <td class="font-bold text-red-400">#веня (выбыл)</td>
                   <td class="text-white/20">❌</td>
                   <td class="text-center">-</td>
                   <td class="text-center">-</td>
@@ -456,7 +509,7 @@
                 </tr>
                 <tr class="opacity-50 bg-red-950/10">
                   <td class="py-3 pl-2 text-red-400">16</td>
-                  <td class="font-bold text-red-400">#chaolexi (выбыл)</td>
+                  <td class="font-bold text-red-400">#Leo (выбыл)</td>
                   <td class="text-white/20">❌</td>
                   <td class="text-center">-</td>
                   <td class="text-center">-</td>
@@ -472,7 +525,7 @@
                 </tr>
                 <tr class="opacity-50 bg-red-950/10">
                   <td class="py-3 pl-2 text-red-400">18</td>
-                  <td class="font-bold text-red-400">#mannaay (выбыл)</td>
+                  <td class="font-bold text-red-400">#chaolexi (выбыл)</td>
                   <td class="text-white/20">❌</td>
                   <td class="text-center">-</td>
                   <td class="text-center">-</td>
@@ -480,7 +533,7 @@
                 </tr>
                 <tr class="opacity-50 bg-red-950/10">
                   <td class="py-3 pl-2 text-red-400">19</td>
-                  <td class="font-bold text-red-400">#Leo (выбыл)</td>
+                  <td class="font-bold text-red-400">#меридианочка (выбыл)</td>
                   <td class="text-white/20">❌</td>
                   <td class="text-center">-</td>
                   <td class="text-center">-</td>
@@ -488,14 +541,6 @@
                 </tr>
                 <tr class="opacity-50 bg-red-950/10">
                   <td class="py-3 pl-2 text-red-400">20</td>
-                  <td class="font-bold text-red-400">#vas (выбыл)</td>
-                  <td class="text-white/20">❌</td>
-                  <td class="text-center">-</td>
-                  <td class="text-center">-</td>
-                  <td class="text-right">-</td>
-                </tr>
-                <tr class="opacity-50 bg-red-950/10">
-                  <td class="py-3 pl-2 text-red-400">21</td>
                   <td class="font-bold text-red-400">#DC_IM (выбыл)</td>
                   <td class="text-white/20">❌</td>
                   <td class="text-center">-</td>
@@ -503,8 +548,16 @@
                   <td class="text-right">-</td>
                 </tr>
                 <tr class="opacity-50 bg-red-950/10">
+                  <td class="py-3 pl-2 text-red-400">21</td>
+                  <td class="font-bold text-red-400">#xwgrxqrx (выбыл)</td>
+                  <td class="text-white/20">❌</td>
+                  <td class="text-center">-</td>
+                  <td class="text-center">-</td>
+                  <td class="text-right">-</td>
+                </tr>
+                <tr class="opacity-50 bg-red-950/10">
                   <td class="py-3 pl-2 text-red-400">22</td>
-                  <td class="font-bold text-red-400">#ratigan (выбыл)</td>
+                  <td class="font-bold text-red-400">#mars (выбыл)</td>
                   <td class="text-white/20">❌</td>
                   <td class="text-center">-</td>
                   <td class="text-center">-</td>
@@ -512,7 +565,31 @@
                 </tr>
                 <tr class="opacity-50 bg-red-950/10">
                   <td class="py-3 pl-2 text-red-400">23</td>
-                  <td class="font-bold text-red-400">#меридианочка (выбыл)</td>
+                  <td class="font-bold text-red-400">#рина (выбыл)</td>
+                  <td class="text-white/20">❌</td>
+                  <td class="text-center">-</td>
+                  <td class="text-center">-</td>
+                  <td class="text-right">-</td>
+                </tr>
+                <tr class="opacity-50 bg-red-950/10">
+                  <td class="py-3 pl-2 text-red-400">24</td>
+                  <td class="font-bold text-red-400">#merlin (выбыл)</td>
+                  <td class="text-white/20">❌</td>
+                  <td class="text-center">-</td>
+                  <td class="text-center">-</td>
+                  <td class="text-right">-</td>
+                </tr>
+                <tr class="opacity-50 bg-red-950/10">
+                  <td class="py-3 pl-2 text-red-400">25</td>
+                  <td class="font-bold text-red-400">#matila2009 (выбыл)</td>
+                  <td class="text-white/20">❌</td>
+                  <td class="text-center">-</td>
+                  <td class="text-center">-</td>
+                  <td class="text-right">-</td>
+                </tr>
+                <tr class="opacity-50 bg-red-950/10">
+                  <td class="py-3 pl-2 text-red-400">26</td>
+                  <td class="font-bold text-red-400">#nevedoma (выбыл)</td>
                   <td class="text-white/20">❌</td>
                   <td class="text-center">-</td>
                   <td class="text-center">-</td>
@@ -522,73 +599,136 @@
             </table>
           </div>
         </div>
+        <div class="mt-6 pt-4 border-t border-red-500/20 text-center">
+            <p
+              class="text-[10px] md:text-xs text-purple-300/70 uppercase tracking-wide flex items-center justify-center gap-2"
+            >
+              <i class="fas fa-star"></i> Участники из ТОП-5 выберите свой кастомный статус
+            </p>
+        </div>
 
-        <!-- ЗОНА РИСКА -->
+        <!-- КЛАССИФИКАЦИЯ ПО ПЕРСОНАЖАМ MARVEL -->
+        <div
+          class="glass-card p-5 md:p-8 border border-purple-500/30 bg-gradient-to-r from-purple-950/10 to-transparent overflow-hidden flex flex-col"
+        >
+          <h3
+            class="text-lg md:text-xl font-bold text-purple-300 mb-4 uppercase flex items-center gap-3 tracking-wide"
+          >
+            <i class="fas fa-mask"></i> Классификация по персонажам Marvel
+          </h3>
+          <div class="space-y-3 text-xs md:text-sm">
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-red-400 font-bold">Железный человек (Сверх-стрик 20+):</span>
+              <span class="text-white font-bold"> #hikonora, #katiee, #amphibian</span>
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-blue-400 font-bold"
+                >Капитан Америка (Стрик 15+):</span
+              >
+              <span class="text-white/40"> — </span>
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-amber-400 font-bold"
+                >Человек-паук (Стрик 10+):</span
+              >
+              <span class="text-white/40"> — </span>
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-cyan-400 font-bold"
+                >Тор (Стрик 1-10 дней):</span
+              >
+              <span class="text-white">
+                #purple_penguin, #cppyaka, #styli197, #zaellaporro, #rescuid, #torchbearer</span
+              >
+            </div>
+            <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+              <span class="text-emerald-400 font-bold">Халк (На грани вылета: 1 HP):</span>
+              <span class="text-white/40"> —</span>
+            </div>
+          </div>
+        </div>
+
         <div
           class="glass-card p-5 md:p-8 border border-red-500/30 bg-gradient-to-r from-red-950/20 to-transparent overflow-hidden flex flex-col"
         >
           <h3
-            class="text-lg md:text-xl font-bold text-red-400 mb-2 uppercase flex items-center gap-3 tracking-wide"
+            class="text-lg md:text-xl font-bold text-red-400 mb-4 uppercase flex items-center gap-3 tracking-wide"
           >
-            <i class="fas fa-skull-crossbones text-red-500"></i> Зона риска
+            <i class="fas fa-infinity"></i> Были уничтожены Таносом:
           </h3>
-          <p class="text-xs text-white/50 mb-4">Участники на грани вылета (2 ❤️ или меньше)</p>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs md:text-sm border-collapse">
-              <thead
-                class="text-red-400/60 text-[9px] md:text-[10px] uppercase font-bold tracking-widest border-b border-red-500/20"
-              >
-                <tr>
-                  <th class="pb-3 pr-4 w-8">#</th>
-                  <th class="pb-3 pr-4">Участник</th>
-                  <th class="pb-3 pr-4">Жизни</th>
-                  <th class="pb-3 text-center w-16">Отчёты</th>
-                  <th class="pb-3 text-right w-16">Серия</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-red-500/10">
-                <tr>
-                  <td class="py-2 text-red-400 font-bold">1</td>
-                  <td class="font-bold text-white font-mono">#savestars</td>
-                  <td class="text-red-400 font-bold">❤️❤️</td>
-                  <td class="text-center text-white/80">17</td>
-                  <td class="text-right text-white/80">4</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="mt-6 pt-4 border-t border-red-500/20 text-center">
-            <p
-              class="text-[10px] md:text-xs text-red-400/70 uppercase tracking-wide flex items-center justify-center gap-2"
+          <p class="text-xs text-white/50 mb-4">Участники, выбывшие из марафона (17 человек):</p>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#divanka</span
             >
-              <i class="fas fa-exclamation-triangle"></i> Следующая ошибка станет фатальной!
-            </p>
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#ratigan</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#mannaay</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#savestars</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#vas</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#веня</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#Leo</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#nautilus</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#chaolexi</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#меридианочка</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#DC_IM</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#xwgrxqrx</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#mars</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#рина</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#merlin</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#matila2009</span
+            >
+            <span
+              class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-300 font-mono text-xs"
+              >#nevedoma</span
+            >
           </div>
-        </div>
-
-        <!-- Кнопка опроса -->
-        <div class="pt-2 text-center">
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSddq4ATIUToMYS60pxkUHBDzSs5fWTxKhEMN5udhVnXlx69LA/viewform?usp=dialog"
-            target="_blank"
-            class="inline-flex items-center gap-2 text-xs text-[#D8B2FE] hover:text-white transition-colors bg-white/5 px-4 py-2.5 rounded-xl border border-white/5 hover:border-[#D8B2FE]/30 font-medium"
-          >
-            <i class="fas fa-comment-alt"></i> Пройти опрос по марафону 7.0 и оставить отзыв
-          </a>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- Архив -->
-<div id="marathon-archive" class="hidden space-y-6 mt-8 md:mt-12">
-  <div
-    id="archive-placeholder"
-    class="text-white/60 text-sm font-mono animate-pulse text-center py-8"
-  >
-    <i class="fas fa-spinner fa-spin mr-2"></i> Загрузка архива марафонов...
   </div>
 </div>
